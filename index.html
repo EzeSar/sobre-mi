@@ -4,74 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resumen de Ezequiel</title>
-    <link rel="stylesheet" href="estilos.css" />
+    <!--usé unos íconos de fontawesome para el nav-->
+    <script src="https://kit.fontawesome.com/8d00b3ed89.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Utilicé una fuente de google para darle personalización al texto-->
+    <link href="https://fonts.googleapis.com/css2?family=Oregano&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Información de Ezequiel</h1>
-        <!-- incluyo el nav dentro del header -->
-        <nav class="menu">
+        <!-- incluyo el nav dentro del header para fijarlo, sin el h1 -->
+        <nav>
+            <!-- agrego enlaces a 2 páginas extras, con íconos personalizados y class para darle estilo en css -->
             <ul>
-                <!-- agrego enlaces a 2 páginas extras -->
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="masSobreMi.html">Mas sobre mi</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li class="header-li"><i class="fa-solid fa-house"></i><a href="index.html">Inicio</a></li>
+                <li class="header-li"><i class="fa-solid fa-eye"></i><a href="masSobreMi.html">Mas sobre mi</a></li>
+                <li class="header-li"><i class="fa-solid fa-paper-plane"></i><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
-      
+    
+    <h1>Información de Ezequiel</h1>
+    
     <main>
+        <article class="inline-article">
+            <!-- uso un solo article con dos section y divs, con clases para darles estilo en el css -->
+            <section class="inline-article-section">
+                <div>
+                    <h2>Datos básicos</h2>
+                </div>
+                
+                <div>
+                    <ul>
+                        <li>Nombre: Edgardo Ezequiel Sarmiento</li>
+                        <li>Email: eservicesupply@gmail.com</li>
+                        <li>Edad: 44</li>
+                        <li>Ciudad: Córdoba,Argentina</li>
+                        <li>Estudios: Secundario completo</li>
+                        <li>Ocupación: Servicio técnico especializado</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="inline-article-section">
+                <div>
+                    <h2>Intereses</h2>
+                </div>
+                
+                <div>
+                    <ul>
+                        <li>Tecnología</li>
+                        <li>Música</li>
+                        <li>Programación</li>
+                        <li>Lectura</li>
+                        <li>Fútbol</li>
+                    </ul>
+                </div>
+            </section>
+        </article>
+        
         <article>
-            <!-- uso un solo article con varios section -->
-            <section>
-                <h2>Datos básicos</h2>
-
-                <ul>
-                    <li><strong>Nombre:</strong>Edgardo Ezequiel Sarmiento</li>
-                    <li><strong>Email:</strong>eservicesupply@gmail.com</li>
-                    <li><strong>Edad:</strong>44</li>
-                    <li><strong>Ciudad:</strong>Córdoba,Argentina</li>
-                    <li><strong>Estudios:</strong>Secundario completo</li>
-                    <li><strong>Ocupación:</strong>Servicio técnico especializado</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Intereses</h2>
-
-                <ul>
-                    <li>Tecnología</li>
-                    <li>Música</li>
-                    <li>Fútbol</li>
-                    <li>Lectura</li>
-                    <li>Programación</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Experiencia laboral</h2>
-
-                <p>Después de recibirme de técnico en electrónica, 
-                    trabajé 4 años en armado, testeo y reparación de plaquetas y equipos electronicos
-                    para electromedicina y radiocomunicaciones.<br>
-                Luego y hasta la actualidad, trabajo realizando servicio técnico especializado
-                 en fotocopiadoras e impresoras láser.</p>
-            </section>
+            <h2>Experiencia laboral</h2>
+            
+            <aside>
+                <h3>Contenido extra</h3>
+                <!-- utilizo el aside para un video que hace referencia a este articulo -->
+                <video src="assets/printmaster.mp4" controls></video>
+            </aside>
+            <p>
+                <!--a la imagen le agregué un link al sitio de la empresa que accede al clickear-->
+                <a href="http://www.printmaster.com.ar" target="_blank"><img src="assets/Logo-Printmaster.jpg" alt="logo printmaster"></a>
+                Un año antes de recibirme de técnico en electrónica comencé a trabajar en la empresa Tecnologías Orbis/Urvitech S.A. 
+                Allí trabajé 5 años en fabricación, armado, testeo y reparación de plaquetas y equipos electrónicos
+                para electromedicina y radiocomunicaciones.<br>
+                Luego volví al rubro gráfico (donde había hecho mi primer experiencia laboral).
+                 En un par de años aprendí el oficio en el que fuí desarrollandome, llegando hasta la actualidad todavía con ganas de nuevos desafíos, capacitandome y aprendiendo algo nuevo siempre.
+                 <br> Fuí aprendíz, empleado, y támbien probé suerte como trabajador independiente.
+                 Desde el año 2017 trabajo para la empresa Print Master SRL, donde me desempeño realizando servicio técnico especializado
+                 en fotocopiadoras e impresoras láser de mediano y gran formato.
+            </p> 
         </article>
     </main>
 
-    <aside>
-        <h2>Contenido extra</h2>
-        <!-- utilizo el aside para multimedia -->
-        <img src="multimedia/Logo-Printmaster.jpg" alt="">
-
-        <video src="multimedia/printmaster.mp4" controls></video>
-    </aside>
-
     <footer>
-        <h4>Copyright - Todos los derechos reservados</h4>
-        <!-- coloco un enlace a mi github en el footer -->
-        <a href="https://github.com/EzeSar" target="_blank">GitHub</a>
+        <!-- coloco un enlace a mi github en el footer, con target blank se abre en otra pestaña-->
+        <h4><a href="https://github.com/EzeSar" target="_blank">GitHub</a> - Copyright - Todos los derechos reservados</h4>
     </footer>
 </body>
 </html>

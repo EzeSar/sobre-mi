@@ -4,39 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resumen de Ezequiel</title>
-    <link rel="stylesheet" href="estilos.css" />
+    <!--usé unos íconos de fontawesome para el nav-->
+    <script src="https://kit.fontawesome.com/8d00b3ed89.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Utilicé una fuente de google para darle personalización al texto-->
+    <link href="https://fonts.googleapis.com/css2?family=Oregano&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Formulario de contacto</h1>
-    
-        <nav class="menu">
+        <!-- incluyo el nav dentro del header para fijarlo, sin el h1 -->
+        <nav>
+            <!-- agrego enlaces a 2 páginas extras, con íconos personalizados y class para darle estilo en css -->
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="masSobreMi.html">Mas sobre mi</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li class="header-li"><i class="fa-solid fa-house"></i><a href="index.html">Inicio</a></li>
+                <li class="header-li"><i class="fa-solid fa-eye"></i><a href="masSobreMi.html">Mas sobre mi</a></li>
+                <li class="header-li"><i class="fa-solid fa-paper-plane"></i><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
+    
+    <h1>Buzón de contacto</h1>
       <!-- esta es una página con un formulario para recibir consultas -->
+    
     <main>
-        <h2>Dejame tu consulta y me contactaré con vos:</h2>
         <!-- no está implementado acá pero la consulta se enviaría a mi correo -->
         <form>
-            <input type="text" id="consulta" required value="Escribí acá tu consulta...">
-            <label for="nombre">Tu nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            <label for="email">Tu Email:</label>
-            <input type="email" id="email" name="email" required>
+            <!--usé placeholder en los inputs-->
+            <textarea class=textarea required placeholder="Tu consulta"></textarea>
+            <input type="text" name="nombre" required placeholder="Tu nombre">
+            <input type="email" name="email" required placeholder="Tu email">
             <input type="submit" value="Enviar">
         </form>
         
     </main>
 
     <footer>
-        <h4>Copyright - Todos los derechos reservados</h4>
-
-        <a href="https://github.com/EzeSar" target="_blank">GitHub</a>
+        <!-- coloco un enlace a mi github en el footer, con target blank se abre en otra pestaña -->
+        <h4><a href="https://github.com/EzeSar" target="_blank">GitHub</a> - Copyright - Todos los derechos reservados</h4>
     </footer>
 </body>
 </html>

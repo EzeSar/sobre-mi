@@ -1,0 +1,186 @@
+/*le puse una fuente que elegí, un color y un espaciado de letra para todo el sitio*/
+* {
+    font-family: 'Oregano', cursive;
+    color: #eee;
+    letter-spacing: 2px;
+}
+
+/*usé una imagen para el fondo del body*/
+body {
+    background-size: 25%;
+    background-image: url("assets/eze.jpg");
+}
+
+/*fijé la posición del header para que sea siempre visible el nav*/
+header {
+    position: sticky;
+    top: 0px;
+}
+
+/*estilo para el nav*/
+.header-li {
+    background-color: #666;
+    display: inline-block;
+    padding: 12px;
+    border-radius: 1em;
+    
+}
+
+.header-li a:hover {
+    color: #006;
+}
+
+/*usé estilos muy similares para h1,h2 y h3 con redondeo de borde y sombra*/
+h1 {
+    background-color: #004;
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 1em;
+    border: 9px ridge #006;
+}
+
+h2 {
+    width: fit-content;
+    background-color: #004;
+    border-radius: 1em;
+    text-align: center;
+    padding: 0.5em 1em;
+    margin: 2em;
+    box-shadow: 10px 10px 5px 5px black;
+}
+
+h3 {
+    width: fit-content;
+    background-color: #004;
+    border-radius: 1em;
+    text-align: center;
+    padding: 0.5em 1em;
+    box-shadow: 10px 10px 5px 5px black;
+}
+
+/*al foot le agregué clear porque se me superponía el video del aside*/
+footer {
+    background-color: #004;
+    border-radius: 1em;
+    border: 9px ridge #006;
+    text-align: center;
+    clear: both;
+}
+
+h4 {
+    background-color: #004;
+}
+
+a {
+    background-color: transparent;
+    text-shadow: 5px 5px 5px black;
+}
+
+/*estilo para el form*/
+form {
+    display: inline-block;
+}
+
+input {
+    font-weight: bold;
+    font-size: larger;
+    max-width: 600px;
+    width: 90%;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 1em;
+    background-color: #666;
+}
+
+input:focus {
+    background-color: #ccc;
+    color: black;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+.textarea {
+    font-weight: bold;
+    font-size: larger;
+    max-width: 600px;
+    width: 90%;
+    height: 100px;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 1em;
+    background-color: #666;
+}
+
+.textarea::placeholder {
+    color: #999;
+}
+
+.textarea:focus {
+    background-color: #ccc;
+    color: black;
+}
+
+input[type=submit] {
+    width: fit-content;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 5px black;
+}
+
+/*estilo para las imagenes, pequeñas y con float*/
+img {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 5px;
+    max-width: 150px;
+    float: left;
+    margin: 10px;
+}
+
+/*para que la primer letra sea mas grande*/
+.texto::first-letter {
+    font-size: 2em;
+}
+
+/*sombra para el texto*/
+article {
+    text-shadow: 5px 5px 5px black;
+}
+
+/*estilo para el primer articulo, para que esten alineados horizontalmente*/
+.inline-article {
+    display: inline-flex;
+}
+
+.inline-article-section {
+    margin: 2em;
+}
+
+/*para hacer mas grandes las letras*/
+p {
+    font-weight: bold;
+    font-size: larger;
+}
+
+ul {
+    font-weight: bold;
+    font-size: larger;
+}
+
+/*estilo para el aside*/
+aside {
+    text-align: center;
+    width: 150px;
+    margin-left: 15px;
+    float: right;
+  }
+
+video {
+    width: 150px;
+  }
+
+/*para los div de "mas sobre mi"*/
+.div-con-imagen {
+    margin: 2em;
+  }

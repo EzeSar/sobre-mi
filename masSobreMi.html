@@ -4,68 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resumen de Ezequiel</title>
-    <link rel="stylesheet" href="estilos.css" />
+    <!--usé unos íconos de fontawesome para el nav-->
+    <script src="https://kit.fontawesome.com/8d00b3ed89.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Utilicé una fuente de google para darle personalización al texto-->
+    <link href="https://fonts.googleapis.com/css2?family=Oregano&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Mas sobre Ezequiel</h1>
-    
-        <nav class="menu">
+        <!-- incluyo el nav dentro del header para fijarlo, sin el h1 -->
+        <nav>
+            <!-- agrego enlaces a 2 páginas extras, con íconos personalizados y class para darle estilo en css -->
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="masSobreMi.html">Mas sobre mi</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li class="header-li"><i class="fa-solid fa-house"></i><a href="index.html">Inicio</a></li>
+                <li class="header-li"><i class="fa-solid fa-eye"></i><a href="masSobreMi.html">Mas sobre mi</a></li>
+                <li class="header-li"><i class="fa-solid fa-paper-plane"></i><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
+    
+    <h1>Mas sobre Ezequiel</h1>
       <!-- esta página contendría mas info sobre mí -->
-    <main>
-        <article>
-            <section>
-                <h2>Mas sobre mí</h2>
+      <main>
+          <article>
+              <section>
+                  <div class="div-con-imagen">
+                      <h3>Mis hijos y Talleres...</h3>
+                      
+                    <img src="assets/cancha.jpg" alt="foto en la cancha con mis hijos">
+                    <!--a las fotos les di un float left y al estar cada una dentro de un div junto al texto se acomodan-->
+                    <p class="texto">
+                        <!--no me puse a escribir asi que rellené con lorem los textos-->
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Tenetur corrupti accusantium eum optio illo dolor commodi.
+                        Harum nam ad explicabo autem in est eligendi exercitationem.
+                        Dolore eos obcaecati ab aspernatur?<br>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Adipisci, delectus! Soluta, eos corrupti deleniti reiciendis dolorem
+                        doloribus quisquam explicabo possimus cupiditate dolor!
+                        Blanditiis rerum possimus natus minus quisquam, magnam velit!<br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Quaerat perspiciatis asperiores, ratione esse quasi,
+                          cum nihil ea delectus doloribus consequuntur vel eius fugiat libero,
+                           ullam exercitationem. Voluptate nisi qui explicabo.
+                    </p>
+                </div>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                     Tenetur corrupti accusantium eum optio illo dolor commodi.
-                      Harum nam ad explicabo autem in est eligendi exercitationem.
-                       Dolore eos obcaecati ab aspernatur?<br>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                 Adipisci, delectus! Soluta, eos corrupti deleniti reiciendis dolorem
-                  doloribus quisquam explicabo possimus cupiditate dolor!
-                   Blanditiis rerum possimus natus minus quisquam, magnam velit!<br>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                 Dignissimos, voluptates voluptatibus non voluptate omnis nisi laudantium
-                  dolorem fugit possimus architecto quaerat, dolorum expedita libero ducimus,
-                   voluptatem explicabo enim corporis aperiam!<br>
-                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Tenetur corrupti accusantium eum optio illo dolor commodi.
-                    Harum nam ad explicabo autem in est eligendi exercitationem.
-                     Dolore eos obcaecati ab aspernatur?<br>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-               Adipisci, delectus! Soluta, eos corrupti deleniti reiciendis dolorem
-                doloribus quisquam explicabo possimus cupiditate dolor!
-                 Blanditiis rerum possimus natus minus quisquam, magnam velit!<br>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-               Dignissimos, voluptates voluptatibus non voluptate omnis nisi laudantium
-                dolorem fugit possimus architecto quaerat, dolorum expedita libero ducimus,
-                 voluptatem explicabo enim corporis aperiam!</p>
+                <div class="div-con-imagen">
+                    <h3>Asado y Amigos...</h3>
+                    
+                    <img src="assets/amigos.jpg" alt="foto asado con amigos">
+                    
+                    <p class="texto">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Dignissimos, voluptates voluptatibus non voluptate omnis nisi laudantium
+                        dolorem fugit possimus architecto quaerat, dolorum expedita libero ducimus,
+                        voluptatem explicabo enim corporis aperiam!<br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Tenetur corrupti accusantium eum optio illo dolor commodi.
+                        Harum nam ad explicabo autem in est eligendi exercitationem.
+                        Dolore eos obcaecati ab aspernatur?<br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Sapiente ut nesciunt, reprehenderit dignissimos itaque impedit.
+                          Necessitatibus expedita cupiditate, aliquid tenetur numquam
+                           dicta esse ratione molestiae nam totam sapiente? Asperiores, suscipit.
+                    </p> 
+                </div>
+                
+                <div class="div-con-imagen">
+                    <aside>
+                        <h3>Contenido extra</h3>
+                        <!-- utilizo el aside para un video que hace referencia a este articulo y lo acomodo con float right -->
+                        <video src="assets/ojoblindado.mp4" controls></video>
+                    </aside>
+                    <h3>El Rocanrol...</h3>
+                    
+                    <img src="assets/ojoblindado.jpg" alt="foto tocando con la banda">
+                    
+                    <p class="texto">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Adipisci, delectus! Soluta, eos corrupti deleniti reiciendis dolorem
+                        doloribus quisquam explicabo possimus cupiditate dolor!
+                        Blanditiis rerum possimus natus minus quisquam, magnam velit!<br>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Dignissimos, voluptates voluptatibus non voluptate omnis nisi laudantium
+                        dolorem fugit possimus architecto quaerat, dolorum expedita libero ducimus,
+                        voluptatem explicabo enim corporis aperiam!<br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit in veritatis,
+                         iure magnam ut laborum deleniti velit earum molestiae mollitia laboriosam
+                          exercitationem explicabo? Perspiciatis saepe ex, earum id a ad.
+                    </p>
+                </div>
             </section>
         </article>
     </main>
 
-    <aside>
-        <h2>Contenido extra</h2>
-
-        <img src="multimedia/cancha.jpg" alt="">
-
-        <img src="multimedia/ojoblindado.jpg" alt="">
-
-        <video src="multimedia/ojoblindado.mp4" controls></video>
-    </aside>
-
     <footer>
-        <h4>Copyright - Todos los derechos reservados</h4>
-
-        <a href="https://github.com/EzeSar" target="_blank">GitHub</a>
+        <!-- coloco un enlace a mi github en el footer, con target blank se abre en otra pestaña -->
+        <h4><a href="https://github.com/EzeSar" target="_blank">GitHub</a> - Copyright - Todos los derechos reservados</h4>
     </footer>
 </body>
 </html>
