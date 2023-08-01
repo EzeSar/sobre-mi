@@ -5,10 +5,12 @@
     letter-spacing: 2px;
 }
 
-/*usé una imagen para el fondo del body*/
+/*usé una imagen para el fondo del body le puse 20%, que se repita y que quede fijo al scrolear*/
 body {
-    background-size: 25%;
+    background-size: 20%;
     background-image: url("assets/eze.jpg");
+    background-attachment: fixed;
+    background-position: 0px -80px;
 }
 
 /*fijé la posición del header para que sea siempre visible el nav*/
@@ -26,6 +28,7 @@ header {
     
 }
 
+/*hover para que cambie de color cuando pasa el cursor*/
 .header-li a:hover {
     color: #006;
 }
@@ -58,6 +61,14 @@ h3 {
     box-shadow: 10px 10px 5px 5px black;
 }
 
+h4 {
+    background-color: #004;
+}
+
+a {
+    text-shadow: 5px 5px 5px black;
+}
+
 /*al foot le agregué clear porque se me superponía el video del aside*/
 footer {
     background-color: #004;
@@ -65,15 +76,6 @@ footer {
     border: 9px ridge #006;
     text-align: center;
     clear: both;
-}
-
-h4 {
-    background-color: #004;
-}
-
-a {
-    background-color: transparent;
-    text-shadow: 5px 5px 5px black;
 }
 
 /*estilo para el form*/
@@ -157,7 +159,7 @@ article {
     margin: 2em;
 }
 
-/*para hacer mas grandes las letras*/
+/*para hacer mas grandes las letras de p y ul*/
 p {
     font-weight: bold;
     font-size: larger;
