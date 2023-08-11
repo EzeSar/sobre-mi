@@ -43,13 +43,8 @@ h1 {
 }
 
 #botón {
-    background-color: #000;
-    border-color: #192;
-    color: #192;
-    font-weight: bold;
     font-size: 2rem;
     width: 50px;
-    margin: 3px;
 }
 
 #resultado {
@@ -65,7 +60,9 @@ h1 {
     margin: 3px;
 }
 
-#borrador {
+button {
+    color: #192;
+    font-weight: bold;
     background-color: #000;
     border-color: #192;
     margin: 3px;

@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="contenedor-flex">
-        <div><h1>CALCULADORA SIMPLE</h1></div>
+        <div><h1 id="h1">CALCULADORA SIMPLE</h1></div>
         
         <div class="inputs-divs">
             <div><input type="number" id="número1" placeholder="ingrese un número"></div>
@@ -17,7 +17,7 @@
 
             <div>
                 <select name="operaciones" id="operación">
-                    <option value="" selected disabled hidden>Elija una operación</option>
+                    <option value="" selected disabled hidden id="opcion-x-defecto">elija una operación</option>
                     <!--con hidden oculta la opción al desplegar el menú-->
                     <option value="sumar">&#10133</option>
                     <option value="restar">&#10134</option>
@@ -34,10 +34,13 @@
     
             <div><p id="resultado"></p></div>
 
-            <div><button id="borrador"><a href="index.html">Borrar todo</a></button></div>
+            <div><button id="borrador"><a href="index.html" id="borrar">Borrar todo</a></button></div>
             <!--este botón recarga la página y por ende borra todo-->
         </div>
 
+        <div><button id="idioma-i">Change to english</button></div>
+        <!--estos botones agregué extra para cambiar a idioma inglés y volver a español-->
+        <div><button id="idioma-e">Cambiar a español</button></div>
     </div>
 
     <script src="script.js"></script>
