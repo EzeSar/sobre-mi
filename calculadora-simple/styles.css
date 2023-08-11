@@ -57,7 +57,7 @@ h1 {
     color: #192;
     text-align: center;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2.5rem;
     min-width: 250px;
     min-height: 50px;
     border: #192 1px solid;
@@ -74,4 +74,8 @@ h1 {
 a {
     color: #192;
     font-weight: bold;
+}
+
+button:hover {
+    scale: 120%;
 }

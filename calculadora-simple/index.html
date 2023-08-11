@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Calculadora simple</title>
+    <link rel="shortcut icon" href="assets/2021-casio-fx-702p.png"><!--esto es el ícono q va al lado del title-->
 </head>
 <body>
     <div class="contenedor-flex">
@@ -12,28 +13,33 @@
         
         <div class="inputs-divs">
             <div><input type="number" id="número1" placeholder="ingrese un número"></div>
+            <!--siendo tipo number el input solo admite valores numericos-->
 
             <div>
                 <select name="operaciones" id="operación">
-                    <option value="none" selected disabled hidden>Elija una operación</option>
-                    <option value="sumar">+</option>
-                    <option value="restar">-</option>
-                    <option value="multiplicar">x</option>
-                    <option value="dividir">/</option>
+                    <option value="" selected disabled hidden>Elija una operación</option>
+                    <!--con hidden oculta la opción al desplegar el menú-->
+                    <option value="sumar">&#10133</option>
+                    <option value="restar">&#10134</option>
+                    <option value="multiplicar">&#10006</option>
+                    <option value="dividir">&#10135</option>
+                    <!--en vez de +,-,x y / usé emojis (https://www.w3schools.com/charsets/ref_emoji.asp)-->
                 </select>
             </div>
 
             <div><input type="number" id="número2" placeholder="ingrese otro número"></div>
         
-            <div><button id="botón" onclick='calcular()'>=</button></div>
+            <div><button id="botón">=</button></div>
+            <!--en principio había usado onclick pero lo cambié x .addEventListener en el js-->
     
             <div><p id="resultado"></p></div>
 
-            <div><button id="borrador"><a href="index.html">Borrar</a></button></div>
+            <div><button id="borrador"><a href="index.html">Borrar todo</a></button></div>
+            <!--este botón recarga la página y por ende borra todo-->
         </div>
 
-        
     </div>
+
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
