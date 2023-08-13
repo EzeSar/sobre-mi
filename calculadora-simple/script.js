@@ -43,11 +43,11 @@ function calcular() {
                 }
         } 
         //este if da el limite de 20 digitos al resultado
-    } if((res.toString()).length > 20) {
+    } if((res.toString()).includes("e")) {
         if(ingles){
-            alert("Result too long, maximum 20 digits");
+            alert("Result too long, cannot be calculated");
         } else {
-            alert("Resultado demasiado extenso, máximo 20 dígitos");
+            alert("Resultado demasiado extenso, no se puede calcular");
         }
     } else {
         document.getElementById("resultado").innerHTML = (res);
