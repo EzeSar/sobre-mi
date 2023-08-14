@@ -11,9 +11,9 @@ function calcular() {
     //el primer if valida que los campos no esten vacíos
     if (oper === "" || num1 === "" || num2 === "") {
         if (ingles) {
-            res = "error, missing data";
+            alert("Error, missing data. Complete all.");
         } else {
-            res = "error, faltan datos";
+            alert("Error, faltan datos. Complete todos.");
         }
     } else {
         //pasamos los value num1 y 2 a números
@@ -34,9 +34,9 @@ function calcular() {
                 //este if valida que no se divida x 0
                 if(num2 === 0){
                     if (ingles) {
-                        res = "don't divide by 0";
+                        alert("Error, don't divide by 0");
                     } else {
-                        res = "no dividir por 0";
+                        alert("Error, no dividir por 0");
                     }
                 } else {
                     res = num1 / num2;
@@ -45,9 +45,9 @@ function calcular() {
         //este if da el limite de 20 digitos al resultado
     } if((res.toString()).includes("e")) {
         if(ingles){
-            alert("Result too long, cannot be calculated");
+            alert("Result too long, cannot be shown.");
         } else {
-            alert("Resultado demasiado extenso, no se puede calcular");
+            alert("Resultado demasiado extenso, no se puede mostrar.");
         }
     } else {
         document.getElementById("resultado").innerHTML = (res);
