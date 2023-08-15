@@ -42,7 +42,7 @@ function calcular() {
                     res = num1 / num2;
                 }
         } 
-        //este if da el limite de 20 digitos al resultado
+        //este if maneja el error de resultado muy largo que usa notación cientifica (e)
     } if((res.toString()).includes("e")) {
         if(ingles){
             alert("Result too long, cannot be shown.");

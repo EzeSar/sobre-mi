@@ -1,9 +1,13 @@
 # Calculadora Simple
 ### *Simple Calculator*
 
+---
+
 Este proyecto es parte de los trabajos prácticos de la segunda etapa (Páginas Web con Componentes Dinámicos) de Programación Web Front-end, Argentina Programa. Dictado por FAMAF - UNC. Córdoba, Argentina 2023.
 
 *This project is part of the practical work of the second stage (Web Pages with Dynamic Components) of Web Programming Front-end, Argentina Programa. Dictated by FAMAF - UNC. Cordoba, Argentina 2023.*
+
+---
 
 ## Comenzando 🚀
 #### *Starting* 🚀
@@ -51,6 +55,14 @@ El resultado se muestra debajo.
 
 ![resultado *result*](assets/resultado.png "resultado *result*")
 
+Calculadora Simple permite realizar operaciones con decimales.
+
+*Simple Calculator allows you to perform operations with decimals.*
+
+![operar con decimales *operate with decimals.*](assets/decimales.png "operar con decimales *operate with decimals*")
+
+---
+
 ## Botones adicionales ⚙️
 #### *Additional buttons* ⚙️
 
@@ -82,6 +94,8 @@ Estos botones cambian el idioma a ingles y español.
 
 ![Change to english/Cambiar a español](assets/idioma.png "Change to english/Cambiar a español")
 
+---
+
 ### Validación de los datos ingresados 🔩
 ##### *Validation of the entered data* 🔩
 
@@ -95,17 +109,21 @@ Calculadora Simple valida en su código Javascript que si no se ingresa alguno d
 
 *Simple Calculator validates in its Javascript code that if any of the data is not entered, an error alert is displayed.*
 
-`if (oper === "" || num1 === "" || num2 === "") {
+```
+if (oper === "" || num1 === "" || num2 === "") {
         if (ingles) {
             alert("Error, missing data. Complete all.");
         } else {
             alert("Error, faltan datos. Complete todos.");
         }
-}`
+}
+```
 
 ![faltan datos](assets/faltandatos.png "faltan datos")
 
 ![missing data](assets/missingdata.png "missing data")
+
+---
 
 ### Manejo de errores ⌨️
 ##### Error handling ⌨️
@@ -114,13 +132,15 @@ Si el usuario intenta dividir por cero, Calculadora Simple muestra un mensaje de
 
 *If the user tries to divide by zero, Simple Calculator displays an error message indicating that the operation is invalid.*
 
-`if(num2 === 0){
+```
+if(num2 === 0){
                     if (ingles) {
                         alert("Error, don't divide by 0");
                     } else {
                         alert("Error, no dividir por 0");
                     }
-                }`
+                }
+```
 
 ![Error, no dividir por 0](assets/nodividirpor0.png "Error, no dividir por 0")
 
@@ -130,17 +150,21 @@ Si el resultado es demasiado extenso para ser mostrado sin usar notación cient�
 
 *If the result is too long to be displayed without using scientific notation, Simple Calculator displays an error message indicating that it cannot be displayed.*
 
-`if((res.toString()).includes("e")) {
+```
+if((res.toString()).includes("e")) {
         if(ingles){
             alert("Result too long, cannot be shown.");
         } else {
             alert("Resultado demasiado extenso, no se puede mostrar.");
         }
-    }`
+    }
+```
 
 ![Resultado demasiado extenso](assets/demasiadoextenso.png "Resultado demasiado extenso")
 
 ![Result too long](assets/toolong.png "Result too long")
+
+---
 
 ## Construido con 🛠️
 #### Built with 🛠️
@@ -152,6 +176,11 @@ Si el resultado es demasiado extenso para ser mostrado sin usar notación cient�
 * [CSS](https://www.w3.org/Style/CSS/ "www.w3.org/Style/CSS")
 * [Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript "developer.mozilla.org/es/docs/Web/JavaScript")
 
-## Autor ✒️
+---
 
-* **Ezequiel Sarmiento** - [EzeSar](https://github.com/EzeSar "github.com/EzeSar")
+## Autor ✒️
+#### Author ✒️
+
+* **Ezequiel Sarmiento** - [EzeSar](https://github.com/EzeSar "github.com/EzeSar") - eservicesupply@gmail.com
+
+---
