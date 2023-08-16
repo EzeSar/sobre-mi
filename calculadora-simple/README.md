@@ -12,16 +12,16 @@ Este proyecto es parte de los trabajos prácticos de la segunda etapa (Páginas 
 ## Comenzando 🚀
 #### *Starting* 🚀
 
-Para poder correr localmente Calculadora Simple, descargar los archivos desde [mi repositorio de GitHub](https://github.com/EzeSar/sobre-mi/tree/main/calculadora-simple "github.com/EzeSar/sobre-mi/tree/main/calculadora-simple").
+Calculadora Simple es basicamente una calculadora que nos permite ingresar dos números (operandos) y realizar las cuatro operaciones básicas: **suma, resta, multiplicación y división**.
 
-*To be able to run Simple Calculator locally, download the files from [my GitHub repository](https://github.com/EzeSar/sobre-mi/tree/main/calculadora-simple "github.com/EzeSar/sobre-mi/tree/main/calculadora-simple").*
+*Simple Calculator is basically a calculator that allows us to enter two numbers (operands) and perform the four basic operations: **addition, subtraction, multiplication and division**.*
 
 ### Instalación 🔧
 ##### *Installation* 🔧
 
-Ejecutar el archivo index.html.
+Para poder correr localmente Calculadora Simple, descargar los archivos desde [mi repositorio de GitHub](https://github.com/EzeSar/sobre-mi/tree/main/calculadora-simple "github.com/EzeSar/sobre-mi/tree/main/calculadora-simple"). Luego ejecutar el archivo index.html.
 
-*Run the file index.html.*
+*To be able to run Simple Calculator locally, download the files from [my GitHub repository](https://github.com/EzeSar/sobre-mi/tree/main/calculadora-simple "github.com/EzeSar/sobre-mi/tree/main/calculadora-simple"). Then run the index.html file.*
 
 ![index.png](assets/index.png "index.html")
 
