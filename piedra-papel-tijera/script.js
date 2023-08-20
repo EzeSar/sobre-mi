@@ -117,3 +117,14 @@ function finDelJuego(){
         document.getElementById("resultado-jugada").innerHTML = `Finalizó el juego en ${rondas} rondas... Ganó la computadora!!!`;
     }
 }
+
+/* función para reiniciar los marcadores y el juego */
+function reiniciarMarcadores(){
+    juegoFinalizado = false;
+    rondas = 0;
+    ganadosCompu = 0;
+    ganadosUsuario = 0;
+    document.getElementById("resultado-jugada").innerHTML = "";
+    document.getElementById("ganados-usuario").innerHTML = "";
+    document.getElementById("ganados-compu").innerHTML = "";
+}

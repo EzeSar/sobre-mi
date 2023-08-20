@@ -117,10 +117,8 @@ function jugada(){
 function finDelJuego(){
     if(ganadosUsuario === 3){
         juegoFinalizado = true;
-        document.getElementById("resultado-jugada").innerHTML = `Finalizó el juego en ${rondas} rondas... Ganó ${nombreUsuario}!!!`;
     } else if(ganadosCompu === 3){
         juegoFinalizado = true;
-        document.getElementById("resultado-jugada").innerHTML = `Finalizó el juego en ${rondas} rondas... Ganó la computadora!!!`;
     }
 }
 
@@ -139,5 +137,32 @@ function jugada(){
     }
 }
 ```
+
+### PARTE 6: Anunciar al ganador y reiniciar el juego
+
+* `script.js`: Cuando uno de los jugadores alcanza 3 victorias la función `finDelJuego()` muestra un mensaje anunciando al ganador.
+
+```javascript
+document.getElementById("resultado-jugada").innerHTML = `Finalizó el juego en ${rondas} rondas... Ganó ${nombreUsuario}!!!`;
+```
+
+* `index.html`: se agrega un botón que llama a la función `reiniciarMarcadores()` para reiniciar el juego y restablecer los marcadores.
+
+```html
+<button onclick="reiniciarMarcadores()">Reiniciar juego</button>
+```
+
+```javascript
+function reiniciarMarcadores(){
+    juegoFinalizado = false;
+    rondas = 0;
+    ganadosCompu = 0;
+    ganadosUsuario = 0;
+    document.getElementById("resultado-jugada").innerHTML = "";
+    document.getElementById("ganados-usuario").innerHTML = "";
+    document.getElementById("ganados-compu").innerHTML = "";
+}
+```
+
 
 ---
