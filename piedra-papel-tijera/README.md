@@ -77,19 +77,66 @@ function elijeTijera(){
 
 ### PARTE 4: Determinación del ganador y actualización del marcador
 
-* Por definición general la opción "piedra" le gana a "tijera", "papel" le gana a "piedra", y "tijera" le gana a "papel".
-
-* `script.js`: se agregan funciones para comparar las opciones del jugador y del oponente y determinar el ganador de la ronda.
+* Por definición general se establece que la opción "piedra" le gana a "tijera", "papel" le gana a "piedra", y "tijera" le gana a "papel".
 
 * `index.html`: se agregan los marcadores de resultados.
 
-* `script.js`: se agrega función que actualiza los marcadores luego de cada ronda.
+```html
+<div class="marcadores">
+        <p id="resultado-jugada"></p>
+        <p id="ganados-usuario"></p>
+        <p id="ganados-compu"></p>
+    </div>
+```
+
+* `script.js`: se agrega la función `jugada()`, que ejecuta a `determinarGanador(jugadaUsuario,jugadaCompu)` para comparar las opciones del jugador y del oponente y determinar el ganador de la ronda.
+
+    - Se agrega función `actualizarMarcadores()` que actualiza los marcadores luego de cada ronda.
 
 ```javascript
 function jugada(){
+    /* if que detecta nombre vacío */
+    if(document.getElementById("nombre").value === ""){
+        alert("INGRESA TU NOMBRE!!!");
+    } else {
     obtenerJugadaCompu();
     determinarGanador(jugadaUsuario,jugadaCompu);
     actualizarMarcadores();
+    }
+}
+```
+
+### PARTE 5: Control del juego
+
+* Se establece que el juego se juega al mejor de 5 rondas.
+* `script.js`: se crea una variable `rondas` para contar las rondas, y una función `finDelJuego()` para verificar si alguno de los jugadores ha alcanzado 3 victorias.
+
+    - Se agrega detección de juego finalizado a `jugada()`.
+
+```javascript
+function finDelJuego(){
+    if(ganadosUsuario === 3){
+        juegoFinalizado = true;
+        document.getElementById("resultado-jugada").innerHTML = `Finalizó el juego en ${rondas} rondas... Ganó ${nombreUsuario}!!!`;
+    } else if(ganadosCompu === 3){
+        juegoFinalizado = true;
+        document.getElementById("resultado-jugada").innerHTML = `Finalizó el juego en ${rondas} rondas... Ganó la computadora!!!`;
+    }
+}
+
+function jugada(){
+    /* if que detecta nombre vacío */
+    if(document.getElementById("nombre").value === ""){
+        alert("INGRESA TU NOMBRE!!!");
+    /* if que detecta juego finalizado */
+    } else if(juegoFinalizado){
+        alert("JUEGO FINALIZADO!!!");
+    } else {
+    obtenerJugadaCompu();
+    determinarGanador(jugadaUsuario,jugadaCompu);
+    actualizarMarcadores();
+    finDelJuego();
+    }
 }
 ```
 
