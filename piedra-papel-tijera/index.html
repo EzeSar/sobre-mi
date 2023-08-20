@@ -9,30 +9,34 @@
 </head>
 <body>
     <h1>Piedra, papel o tijera?</h1>
-
-    <p>INGRESA TU NOMBRE, clickea JUGAR y elegí PIEDRA, PAPEL o TIJERA!</p>
-
+    
     <p>Ganale a la computadora!!! (gana quien sume 3 victorias)</p>
-
+    
+    <p>INGRESA TU NOMBRE y clickea ENVIAR.</p>
+    
     <div class="nombre">
         <label>Tu nombre: <input type="text" id="nombre"></label>
     </div>
     
-    <button onclick="agregarNombre()">JUGAR</button>
+    <button onclick="agregarNombre()">ENVIAR</button>
+
+    <P>Elegí PIEDRA, PAPEL o TIJERA y clickea JUGAR!</P>
 
     <div class="botones">
-        <button onclick="elijePiedra()"><img src="assets/piedra.png" width="50px" height="50px" title="Piedra" alt="Piedra"></button>
-        <button onclick="elijePapel()"><img src="assets/papel.png" width="50px" height="50px" title="Papel" alt="Papel"></button>
-        <button onclick="elijeTijera()"><img src="assets/tijera.png" width="50px" height="50px" title="Tijera" alt="Tijera"></button>
+        <button onclick="obtenerJugadaUsuario('piedra')"><img src="assets/piedra.png" width="50px" height="50px" title="Piedra" alt="Piedra"></button>
+        <button onclick="obtenerJugadaUsuario('papel')"><img src="assets/papel.png" width="50px" height="50px" title="Papel" alt="Papel"></button>
+        <button onclick="obtenerJugadaUsuario('tijera')"><img src="assets/tijera.png" width="50px" height="50px" title="Tijera" alt="Tijera"></button>
     </div>
+
+    <button onclick="jugada()">JUGAR</button>
 
     <p id="resultado-jugada"></p>
 
     <div class="marcadores">
         <p id="ganados-usuario"></p>
-        <img src="assets/usuario.gif" alt="usuario" width="50px" height="50px">
+        <img src="assets/usuario.gif" alt="usuario" width="100px" height="100px">
         <p> VS </p>
-        <img src="assets/compu.gif" alt="computadora" width="50px" height="50px">
+        <img src="assets/compu.gif" alt="computadora" width="100px" height="100px">
         <p id="ganados-compu"></p>
     </div>
 

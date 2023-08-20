@@ -1,7 +1,7 @@
 
 /* inicialización de las variables a utilizar */
-var nombreUsuario;
-var jugadaUsuario;
+var nombreUsuario = "";
+var jugadaUsuario = "";
 var jugadaCompu;
 var resultadoJugada;
 var ganadosUsuario = 0;
@@ -25,25 +25,27 @@ function obtenerJugadaCompu(){
     jugadaCompu = jugadas[Math.floor(Math.random() * 2.9)];
 }
 
-/* las 3 funciones para las jugadas del usuario */
-function elijePiedra(){
-        jugadaUsuario = "piedra";
-        jugada();
-}
+/* la funcion para obtener las jugadas del usuario 
+(en un principio lo hacía con 3 funciones separadas) */
+function obtenerJugadaUsuario(a){
+    switch(a){
+        case "piedra":
+            jugadaUsuario = "piedra";
+            break;
 
-function elijePapel(){
-        jugadaUsuario = "papel";
-        jugada();
-}
+        case "papel":
+            jugadaUsuario = "papel";
+            break;
 
-function elijeTijera(){
-        jugadaUsuario = "tijera";
-        jugada();
+        case "tijera":
+            jugadaUsuario = "tijera";
+            break;
+    }
 }
 
 /* función que compara las jugadas y determina el ganador */
 function determinarGanador(a,b){
-    switch (a+b) {
+    switch(a+b){
         case "piedrapapel":
             resultadoJugada = `la computadora GANA`;
             ganadosCompu++;
@@ -87,16 +89,22 @@ function determinarGanador(a,b){
 
 /* función que ejecuta la jugada */
 function jugada(){
-    /* if que detecta nombre vacío */
-    if(document.getElementById("nombre").value === ""){
-        alert("INGRESA TU NOMBRE!!!");
     /* if que detecta juego finalizado */
-    } else if(juegoFinalizado){
+    if(juegoFinalizado){
         alert("JUEGO FINALIZADO, REINICIAR!!!");
+        /* if que detecta nombre vacío */
+    } else if(document.getElementById("nombre").value === ""){
+        alert("INGRESA TU NOMBRE!!!");
+    /* if que detecta jugada de usuario vacía */
+    } else if(jugadaUsuario === ""){
+        alert("ELEGÍ PIEDRA, PAPEL O TIJERA!!!");
     } else {
     obtenerJugadaCompu();
     determinarGanador(jugadaUsuario,jugadaCompu);
     actualizarMarcadores();
+    /* borro la jugada del usuario para que no se repita por defecto */
+    jugadaUsuario = "";
+    /* al finalizar la jugada se ejecuta el chequeo de finalización del juego */
     finDelJuego();
     }
 }

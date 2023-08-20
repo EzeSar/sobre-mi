@@ -206,3 +206,55 @@ function musicaPlay(){
 document.body.onload = musicaPlay();
 
 ```
+### PARTE 8: Comentarios explicativos y optimización del código
+
+* Se agrega ***comentarios*** en el código JavaScript para explicar el propósito de cada función y sección del código. Por ejemplo:
+
+```javascript
+/* función que ejecuta la jugada */
+function jugada(){
+    /* if que detecta juego finalizado */
+    if(juegoFinalizado){
+        alert("JUEGO FINALIZADO, REINICIAR!!!");
+        /* if que detecta nombre vacío */
+    } else if(document.getElementById("nombre").value === ""){
+        alert("INGRESA TU NOMBRE!!!");
+    /* if que detecta jugada de usuario vacía */
+    } else if(jugadaUsuario === ""){
+        alert("ELEGÍ PIEDRA, PAPEL O TIJERA!!!");
+    } else {
+    obtenerJugadaCompu();
+    determinarGanador(jugadaUsuario,jugadaCompu);
+    actualizarMarcadores();
+    /* borro la jugada del usuario para que no se repita por defecto */
+    jugadaUsuario = "";
+    /* al finalizar la jugada se ejecuta el chequeo de finalización del juego */
+    finDelJuego();
+    }
+}
+```
+
+* Revisión del código para identificar posibles áreas de ***mejora y optimización***. Por ejemplo, para obtener la jugada del usuario usaba 3 funciones separadas y las uní en una con switch case:
+
+```javascript
+/* la funcion para obtener las jugadas del usuario 
+(en un principio lo hacía con 3 funciones separadas) */
+function obtenerJugadaUsuario(a){
+    switch(a){
+        case "piedra":
+            jugadaUsuario = "piedra";
+            jugada();
+            break;
+
+        case "papel":
+            jugadaUsuario = "papel";
+            jugada();
+            break;
+
+        case "tijera":
+            jugadaUsuario = "tijera";
+            jugada();
+            break;
+    }
+}
+```
