@@ -10,28 +10,33 @@
 <body>
     <h1>Piedra, papel o tijera?</h1>
 
-    <h2>Ganale a la computadora!!!</h2>
+    <p>INGRESA TU NOMBRE, clickea JUGAR y elegí PIEDRA, PAPEL o TIJERA!</p>
 
-    <h3>Ingresa tu nombre, elegí piedra, papel o tijera y ya estás jugando! (gana el mejor de 5 rondas)</h3>
+    <p>Ganale a la computadora!!! (gana quien sume 3 victorias)</p>
 
     <div class="nombre">
         <label>Tu nombre: <input type="text" id="nombre"></label>
-        <button id="enviar" onclick="agregarNombre()">Enviar</button>
     </div>
+    
+    <button onclick="agregarNombre()">JUGAR</button>
 
     <div class="botones">
-        <button onclick="elijePiedra()"><img src="assets/piedra.png" width="50" height="50" title="Piedra" alt="Piedra"></button>
-        <button onclick="elijePapel()"><img src="assets/papel.png" width="50" height="50" title="Papel" alt="Papel"></button>
-        <button onclick="elijeTijera()"><img src="assets/tijera.png" width="50" height="50" title="Tijera" alt="Tijera"></button>
+        <button onclick="elijePiedra()"><img src="assets/piedra.png" width="50px" height="50px" title="Piedra" alt="Piedra"></button>
+        <button onclick="elijePapel()"><img src="assets/papel.png" width="50px" height="50px" title="Papel" alt="Papel"></button>
+        <button onclick="elijeTijera()"><img src="assets/tijera.png" width="50px" height="50px" title="Tijera" alt="Tijera"></button>
     </div>
 
+    <p id="resultado-jugada"></p>
+
     <div class="marcadores">
-        <p id="resultado-jugada"></p>
         <p id="ganados-usuario"></p>
+        <img src="assets/usuario.gif" alt="usuario" width="50px" height="50px">
+        <p> VS </p>
+        <img src="assets/compu.gif" alt="computadora" width="50px" height="50px">
         <p id="ganados-compu"></p>
     </div>
 
-    <button onclick="reiniciarMarcadores()">Reiniciar juego</button>
+    <button onclick="reiniciarMarcadores()">REINICIAR</button>
     
     <script src="script.js"></script>
 </body>

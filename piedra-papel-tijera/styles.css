@@ -8,6 +8,7 @@ body{
     background-image: url("assets/Dado-piedra-papel-o-tijera.gif");
     background-position: center;
     background-size: cover;
+    font-weight: bold;
     text-shadow:
     1px 1px 2px black,
     0 0 1em blue,
@@ -15,15 +16,13 @@ body{
     color: white;
 }
 
-.nombre{
-    padding: 30px;
-}
-
 .botones{
     padding: 10px;
+    margin-top: 10px;
 }
 
 button{
+    margin-top: 10px;
     background-color: #fff;
     border-radius: 6px;
     box-shadow: 0 9px #aaa;
@@ -40,5 +39,10 @@ button:active {
 }
 
 .marcadores {
+    font-size: medium;
     font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

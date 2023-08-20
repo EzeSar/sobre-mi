@@ -1,3 +1,4 @@
+
 /* inicialización de las variables a utilizar */
 var nombreUsuario;
 var jugadaUsuario;
@@ -44,43 +45,43 @@ function elijeTijera(){
 function determinarGanador(a,b){
     switch (a+b) {
         case "piedrapapel":
-            resultadoJugada = `la computadora gana`;
+            resultadoJugada = `la computadora GANA`;
             ganadosCompu++;
             rondas++;
             break;
         
         case "piedratijera":
-            resultadoJugada = `${nombreUsuario} gana`;
+            resultadoJugada = `${nombreUsuario} GANA`;
             ganadosUsuario++;
             rondas++;
             break;
         
         case "papelpiedra":
-            resultadoJugada = `${nombreUsuario} gana`;
+            resultadoJugada = `${nombreUsuario} GANA`;
             ganadosUsuario++;
             rondas++;
             break;
 
         case "papeltijera":
-            resultadoJugada = `la computadora gana`;
+            resultadoJugada = `la computadora GANA`;
             ganadosCompu++;
             rondas++;
             break;
 
         case "tijerapiedra":
-            resultadoJugada = `la computadora gana`;
+            resultadoJugada = `la computadora GANA`;
             ganadosCompu++;
             rondas++;
             break;
 
         case "tijerapapel":
-            resultadoJugada = `${nombreUsuario} gana`;
+            resultadoJugada = `${nombreUsuario} GANA`;
             ganadosUsuario++;
             rondas++;
             break;
 
         default:
-            resultadoJugada = "empate, se vuelve a jugar";
+            resultadoJugada = "es EMPATE, se vuelve a jugar";
         }
 }
 
@@ -91,7 +92,7 @@ function jugada(){
         alert("INGRESA TU NOMBRE!!!");
     /* if que detecta juego finalizado */
     } else if(juegoFinalizado){
-        alert("JUEGO FINALIZADO!!!");
+        alert("JUEGO FINALIZADO, REINICIAR!!!");
     } else {
     obtenerJugadaCompu();
     determinarGanador(jugadaUsuario,jugadaCompu);
@@ -102,7 +103,7 @@ function jugada(){
 
 /* función que va actualizando los marcadores luego de cada jugada */
 function actualizarMarcadores(){
-    document.getElementById("resultado-jugada").innerHTML = `${nombreUsuario} eligió ${jugadaUsuario}, la computadora eligió ${jugadaCompu}, ${resultadoJugada} esta ronda!`;
+    document.getElementById("resultado-jugada").innerHTML = `${nombreUsuario} eligió ${jugadaUsuario.toUpperCase()}, la computadora eligió ${jugadaCompu.toUpperCase()}, ${resultadoJugada} esta ronda!`;
     document.getElementById("ganados-usuario").innerHTML = `${nombreUsuario} : ${ganadosUsuario}`;
     document.getElementById("ganados-compu").innerHTML = `Computadora : ${ganadosCompu}`;
 }
@@ -111,10 +112,10 @@ function actualizarMarcadores(){
 function finDelJuego(){
     if(ganadosUsuario === 3){
         juegoFinalizado = true;
-        document.getElementById("resultado-jugada").innerHTML = `Finalizó el juego en ${rondas} rondas... Ganó ${nombreUsuario}!!!`;
+        document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ ${nombreUsuario}!!!`;
     } else if(ganadosCompu === 3){
         juegoFinalizado = true;
-        document.getElementById("resultado-jugada").innerHTML = `Finalizó el juego en ${rondas} rondas... Ganó la computadora!!!`;
+        document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ la computadora!!!`;
     }
 }
 
@@ -128,3 +129,13 @@ function reiniciarMarcadores(){
     document.getElementById("ganados-usuario").innerHTML = "";
     document.getElementById("ganados-compu").innerHTML = "";
 }
+
+/* agrego una pista de audio de fondo */
+function musicaPlay(){
+    const musicaDeFondo = new Audio("assets/Tetris-large.mp3");
+    musicaDeFondo.volume = 0.1;
+    musicaDeFondo.loop = true;
+    musicaDeFondo.play();
+}
+
+document.body.onload = musicaPlay();

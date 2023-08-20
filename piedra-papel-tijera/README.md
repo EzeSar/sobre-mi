@@ -24,7 +24,7 @@ Acá van las instrucciones
 
 ### PARTE 2: Obtención del nombre del jugador
 
-* `index.html`: botón para ingresar el nombre del usuario.
+* `index.html`: botón para ingresar el ***nombre del usuario***.
 
 ```html
 <div class="nombre">
@@ -34,7 +34,7 @@ Acá van las instrucciones
 ```
 
 * `script.js`: archivos para las acciones dinamicas de la app.
-    - `agregarNombre()`: funcion para tomar el nombre del usuario. Contiene validación de input no vacío. Esta vinculada a un evento de tipo *onclick* en el *input* con `id="nombre"`.
+    - `agregarNombre()`: funcion para tomar el nombre del usuario. Contiene ***detección de input vacío***. Está vinculada a un evento de tipo ***onclick*** en el ***input*** con `id="nombre"`.
 
 ```javascript
 /* Funcion que toma el nombre */
@@ -50,9 +50,9 @@ function agregarNombre(){
 
 ### PARTE 3: Selección de la opción del jugador y del oponente (PC)
 
-* `index.html`: a cada botón (piedra, papel y tijera) se le agrega su correspondiente imágen `<img src=` y evento *onclick* `<button onclick=`.
+* `index.html`: a cada ***botón*** (piedra, papel y tijera) se le agrega su correspondiente ***imágen*** `<img src=` y evento ***onclick*** `<button onclick=`.
 
-* `script.js`: se incorporan funciones para capturar la opción seleccionada por el jugador y generar aleatoriamente la opción del oponente (PC).
+* `script.js`: se incorporan funciones para ***capturar*** la opción seleccionada por el jugador y para ***generar aleatoriamente*** la opción del oponente (PC).
 
  ```javascript
  /* función que genera aleatoriamente la jugada de la compu */
@@ -77,9 +77,9 @@ function elijeTijera(){
 
 ### PARTE 4: Determinación del ganador y actualización del marcador
 
-* Por definición general se establece que la opción "piedra" le gana a "tijera", "papel" le gana a "piedra", y "tijera" le gana a "papel".
+* Por ***definición general*** se establece que la opción "piedra" le gana a "tijera", "papel" le gana a "piedra", y "tijera" le gana a "papel".
 
-* `index.html`: se agregan los marcadores de resultados.
+* `index.html`: se agregan los ***marcadores de resultados***.
 
 ```html
 <div class="marcadores">
@@ -89,9 +89,9 @@ function elijeTijera(){
     </div>
 ```
 
-* `script.js`: se agrega la función `jugada()`, que ejecuta a `determinarGanador(jugadaUsuario,jugadaCompu)` para comparar las opciones del jugador y del oponente y determinar el ganador de la ronda.
+* `script.js`: se agrega la función `jugada()`, que ejecuta a `determinarGanador(jugadaUsuario,jugadaCompu)` para ***comparar las opciones*** del jugador y del oponente y ***determinar el ganador*** de la ronda.
 
-    - Se agrega función `actualizarMarcadores()` que actualiza los marcadores luego de cada ronda.
+    - Se agrega función `actualizarMarcadores()` que ***actualiza los marcadores*** luego de cada ronda.
 
 ```javascript
 function jugada(){
@@ -108,10 +108,10 @@ function jugada(){
 
 ### PARTE 5: Control del juego
 
-* Se establece que el juego se juega al mejor de 5 rondas.
-* `script.js`: se crea una variable `rondas` para contar las rondas, y una función `finDelJuego()` para verificar si alguno de los jugadores ha alcanzado 3 victorias.
+* Se establece que el juego se juega al mejor de ***5 rondas***.
+* `script.js`: se crea una variable `rondas` para contar las rondas, y una función `finDelJuego()` para verificar si alguno de los jugadores ha alcanzado ***3 victorias***.
 
-    - Se agrega detección de juego finalizado a `jugada()`.
+    - Se agrega detección de ***juego finalizado*** a `jugada()`.
 
 ```javascript
 function finDelJuego(){
@@ -128,7 +128,7 @@ function jugada(){
         alert("INGRESA TU NOMBRE!!!");
     /* if que detecta juego finalizado */
     } else if(juegoFinalizado){
-        alert("JUEGO FINALIZADO!!!");
+        alert("JUEGO FINALIZADO, REINICIAR!!!");
     } else {
     obtenerJugadaCompu();
     determinarGanador(jugadaUsuario,jugadaCompu);
@@ -140,10 +140,18 @@ function jugada(){
 
 ### PARTE 6: Anunciar al ganador y reiniciar el juego
 
-* `script.js`: Cuando uno de los jugadores alcanza 3 victorias la función `finDelJuego()` muestra un mensaje anunciando al ganador.
+* `script.js`: Cuando uno de los jugadores alcanza ***3 victorias*** la función `finDelJuego()` muestra un mensaje ***anunciando al ganador***.
 
 ```javascript
-document.getElementById("resultado-jugada").innerHTML = `Finalizó el juego en ${rondas} rondas... Ganó ${nombreUsuario}!!!`;
+function finDelJuego(){
+    if(ganadosUsuario === 3){
+        juegoFinalizado = true;
+        document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ ${nombreUsuario}!!!`;
+    } else if(ganadosCompu === 3){
+        juegoFinalizado = true;
+        document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ la computadora!!!`;
+    }
+}
 ```
 
 * `index.html`: se agrega un botón que llama a la función `reiniciarMarcadores()` para reiniciar el juego y restablecer los marcadores.
@@ -166,7 +174,7 @@ function reiniciarMarcadores(){
 
 ### PARTE 7: Mejoras y personalización
 
-* Agrego más estilos CSS:
+* Agrego ***más estilos*** CSS:
 
     - Imagen gif de fondo al body `background-image: url`
     - color y sombras al texto `text-shadow:
@@ -175,15 +183,26 @@ function reiniciarMarcadores(){
     0 0 0.2em blue;
     color: white;`
     - bordes redondeados a los botones `border-radius: 6px;`
-    - texto bold para los marcadores `font-weight: bold;`
+    - imagenes ***gif*** para los marcadores de ***usuario y computadora***.
 
-* Retroalimentación visual cuando se selecciona una opción:
+* ***Retroalimentación visual*** cuando se selecciona una opción:
 
     - escalado tamaño `scale: 140%;`
     - desplazamiento eje y `transform: translateY(4px);`
     - cambia la sombra `box-shadow: 0 5px #666;`
 
-* Transiciones suaves para las animaciones de los botones `transition: 500ms;` .
+* ***Transiciones suaves*** para las animaciones de los botones `transition: 500ms;`.
 
+* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa cuando termina de cargar el ***body***.
 
----
+```javascript
+function musicaPlay(){
+    const musicaDeFondo = new Audio("assets/musica-retro.mp3");
+    musicaDeFondo.volume = 0.1;
+    musicaDeFondo.loop = true;
+    musicaDeFondo.play();
+}
+
+document.body.onload = musicaPlay();
+
+```
