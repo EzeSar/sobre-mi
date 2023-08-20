@@ -5,7 +5,14 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #00c;
+    background-image: url("assets/Dado-piedra-papel-o-tijera.gif");
+    background-position: center;
+    background-size: cover;
+    text-shadow:
+    1px 1px 2px black,
+    0 0 1em blue,
+    0 0 0.2em blue;
+    color: white;
 }
 
 .nombre{
@@ -14,4 +21,24 @@ body{
 
 .botones{
     padding: 10px;
+}
+
+button{
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 9px #aaa;
+}
+
+button:hover {
+    scale: 140%;
+    transition: 500ms;
+}
+
+button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.marcadores {
+    font-weight: bold;
 }

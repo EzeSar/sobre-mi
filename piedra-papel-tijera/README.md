@@ -164,5 +164,26 @@ function reiniciarMarcadores(){
 }
 ```
 
+### PARTE 7: Mejoras y personalización
+
+* Agrego más estilos CSS:
+
+    - Imagen gif de fondo al body `background-image: url`
+    - color y sombras al texto `text-shadow:
+    1px 1px 2px black,
+    0 0 1em blue,
+    0 0 0.2em blue;
+    color: white;`
+    - bordes redondeados a los botones `border-radius: 6px;`
+    - texto bold para los marcadores `font-weight: bold;`
+
+* Retroalimentación visual cuando se selecciona una opción:
+
+    - escalado tamaño `scale: 140%;`
+    - desplazamiento eje y `transform: translateY(4px);`
+    - cambia la sombra `box-shadow: 0 5px #666;`
+
+* Transiciones suaves para las animaciones de los botones `transition: 500ms;` .
+
 
 ---
