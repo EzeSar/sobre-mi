@@ -8,41 +8,56 @@
     <link rel="shortcut icon" href="assets/icono.png">
 </head>
 <body>
-    <h1>Piedra, papel o tijera?</h1>
+    <h1>Piedra , papel o tijera ?</h1>
     
-    <p>Ganale a la computadora!!! (gana quien sume 3 victorias)</p>
+    <div id="div-a-jugar">
+        <p>Ganale a LA COMPU !</p>
+        
+        <button onclick="aJugar()">A JUGAR !</button>
+    </div>
+
+    <div id="div-nombre">
+        <p>INGRESA tu NOMBRE y click en ENVIAR.</p>
     
-    <p>INGRESA TU NOMBRE y clickea ENVIAR.</p>
-    
-    <div class="nombre">
-        <label>Tu nombre: <input type="text" id="nombre"></label>
+        <label>Tu nombre : <input type="text" id="nombre"></label>
+        
         <button onclick="agregarNombre()">ENVIAR</button>
     </div>
     
-    <P>Elegí PIEDRA, PAPEL o TIJERA</P>
+    <div id="div-jugada">
+        <P>Primero ELEGÍ , luego click en JUGADA . Gana quien sume 3 victorias !</P>
 
-    <div class="botones">
-        <button onclick="obtenerJugadaUsuario('piedra')"><img src="assets/piedra.png" width="50px" height="50px" title="Piedra" alt="Piedra"></button>
-        <button onclick="obtenerJugadaUsuario('papel')"><img src="assets/papel.png" width="50px" height="50px" title="Papel" alt="Papel"></button>
-        <button onclick="obtenerJugadaUsuario('tijera')"><img src="assets/tijera.png" width="50px" height="50px" title="Tijera" alt="Tijera"></button>
+        <div class="botones">
+            <button onclick="obtenerJugadaUsuario('piedra')"><img src="assets/piedra.png" width="80px" height="80px" title="Piedra" alt="Piedra"></button>
+        
+            <button onclick="obtenerJugadaUsuario('papel')"><img src="assets/papel.png" width="80px" height="80px" title="Papel" alt="Papel"></button>
+        
+            <button onclick="obtenerJugadaUsuario('tijera')"><img src="assets/tijera.png" width="80px" height="80px" title="Tijera" alt="Tijera"></button>
+        </div>
+
+        <p>( la jugada de la compu se genera aleatoriamente en el momento )</p>
+
+        <button onclick="jugada()">JUGADA</button>
     </div>
-
-    <p>Clickea JUGAR!(la jugada de la compu se genera aleatoriamente)</p>
-
-    <button onclick="jugada()">JUGAR</button>
-
+    
     <p id="resultado-jugada"></p>
 
     <div class="marcadores">
         <p id="ganados-usuario"></p>
-        <img src="assets/usuario.gif" alt="usuario" width="100px" height="100px">
+        
+        <img src="assets/usuario.gif" alt="usuario" width="120px" height="120px">
+        
         <p> VS </p>
-        <img src="assets/compu.gif" alt="computadora" width="100px" height="100px">
+        
+        <img src="assets/compu.gif" alt="computadora" width="120px" height="120px">
+        
         <p id="ganados-compu"></p>
     </div>
 
-    <button onclick="reiniciarMarcadores()">REINICIAR</button>
+    <button onclick="reiniciarMarcadores()">VOLVER A JUGAR</button>
     
+    <button onclick="cambiarNombre()">CAMBIAR NOMBRE</button>
+
     <script src="script.js"></script>
 </body>
 </html>

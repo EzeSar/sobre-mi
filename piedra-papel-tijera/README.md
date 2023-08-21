@@ -52,7 +52,7 @@ function agregarNombre(){
 
 * `index.html`: a cada ***botón*** (piedra, papel y tijera) se le agrega su correspondiente ***imágen*** `<img src=` y evento ***onclick*** `<button onclick=`.
 
-* `script.js`: se incorporan funciones para ***capturar*** la opción seleccionada por el jugador y para ***generar aleatoriamente*** la opción del oponente (PC).
+* `script.js`: se incorporan funciones para ***capturar*** la opción seleccionada por el jugador *(esto lo cambié en la parte 8)* y para ***generar aleatoriamente*** la opción del oponente (PC).
 
  ```javascript
  /* función que genera aleatoriamente la jugada de la compu */
@@ -157,7 +157,7 @@ function finDelJuego(){
 * `index.html`: se agrega un botón que llama a la función `reiniciarMarcadores()` para reiniciar el juego y restablecer los marcadores.
 
 ```html
-<button onclick="reiniciarMarcadores()">Reiniciar juego</button>
+<button onclick="reiniciarMarcadores()">VOLVER A JUGAR</button>
 ```
 
 ```javascript
@@ -187,13 +187,14 @@ function reiniciarMarcadores(){
 
 * ***Retroalimentación visual*** cuando se selecciona una opción:
 
+    - se oculta formulario ***nombre*** y botón ***A JUGAR!***
     - escalado tamaño `scale: 140%;`
     - desplazamiento eje y `transform: translateY(4px);`
     - cambia la sombra `box-shadow: 0 5px #666;`
 
 * ***Transiciones suaves*** para las animaciones de los botones `transition: 500ms;`.
 
-* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa cuando termina de cargar el ***body***.
+* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa dentro de la función `agregarNombre()`.
 
 ```javascript
 function musicaPlay(){
@@ -202,9 +203,6 @@ function musicaPlay(){
     musicaDeFondo.loop = true;
     musicaDeFondo.play();
 }
-
-document.body.onload = musicaPlay();
-
 ```
 ### PARTE 8: Comentarios explicativos y optimización del código
 
@@ -243,17 +241,14 @@ function obtenerJugadaUsuario(a){
     switch(a){
         case "piedra":
             jugadaUsuario = "piedra";
-            jugada();
             break;
 
         case "papel":
             jugadaUsuario = "papel";
-            jugada();
             break;
 
         case "tijera":
             jugadaUsuario = "tijera";
-            jugada();
             break;
     }
 }
@@ -276,6 +271,10 @@ function agregarNombre(){
         alert("NOMBRE MUY LARGO, MAXIMO 20 CARACTERES!!!");
     } else {
         nombreUsuario = document.getElementById("nombre").value;
+        /* luego de captar el nombre se oculta el formulario */
+        document.getElementById("div-nombre").style.display = "none";
+        /* y se muestra los botones de jugada */
+        document.getElementById("div-jugada").style.display = "flex";
     }
 }
 ```

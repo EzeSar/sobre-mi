@@ -9,6 +9,15 @@ var ganadosCompu = 0;
 var rondas = 0;
 var juegoFinalizado = false;
 
+function aJugar(){
+    /* se muestra el formulario para el nombre */
+    document.getElementById("div-nombre").style.display = "flex";
+    /* se oculta el primer texto y el botón a jugar! */
+    document.getElementById("div-a-jugar").style.display = "none";
+    /* y se activa la música de fondo */
+    musicaDeFondo();
+}
+
 /* Funcion que toma el nombre */
 function agregarNombre(){
     /* if que obliga a ingresar el nombre */
@@ -20,6 +29,10 @@ function agregarNombre(){
         alert("NOMBRE MUY LARGO, MAXIMO 20 CARACTERES!!!");
     } else {
         nombreUsuario = document.getElementById("nombre").value;
+        /* luego de captar el nombre se oculta el formulario */
+        document.getElementById("div-nombre").style.display = "none";
+        /* y se muestra los botones de jugada */
+        document.getElementById("div-jugada").style.display = "flex";
     }
 }
 
@@ -51,7 +64,7 @@ function obtenerJugadaUsuario(a){
 function determinarGanador(a,b){
     switch(a+b){
         case "piedrapapel":
-            resultadoJugada = `la computadora GANA`;
+            resultadoJugada = `la compu GANA`;
             ganadosCompu++;
             rondas++;
             break;
@@ -69,13 +82,13 @@ function determinarGanador(a,b){
             break;
 
         case "papeltijera":
-            resultadoJugada = `la computadora GANA`;
+            resultadoJugada = `la compu GANA`;
             ganadosCompu++;
             rondas++;
             break;
 
         case "tijerapiedra":
-            resultadoJugada = `la computadora GANA`;
+            resultadoJugada = `la compu GANA`;
             ganadosCompu++;
             rondas++;
             break;
@@ -115,9 +128,9 @@ function jugada(){
 
 /* función que va actualizando los marcadores luego de cada jugada */
 function actualizarMarcadores(){
-    document.getElementById("resultado-jugada").innerHTML = `${nombreUsuario} eligió ${jugadaUsuario.toUpperCase()}, la computadora eligió ${jugadaCompu.toUpperCase()}, ${resultadoJugada} esta ronda!`;
+    document.getElementById("resultado-jugada").innerHTML = `${nombreUsuario} eligió ${jugadaUsuario.toUpperCase()}, la compu eligió ${jugadaCompu.toUpperCase()}, ${resultadoJugada} esta ronda!`;
     document.getElementById("ganados-usuario").innerHTML = `${nombreUsuario} : ${ganadosUsuario}`;
-    document.getElementById("ganados-compu").innerHTML = `Computadora : ${ganadosCompu}`;
+    document.getElementById("ganados-compu").innerHTML = `Compu : ${ganadosCompu}`;
 }
 
 /* función que establece el fin del juego cuando un jugador llega a 3 rondas ganadas */
@@ -127,7 +140,7 @@ function finDelJuego(){
         document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ ${nombreUsuario}!!!`;
     } else if(ganadosCompu === 3){
         juegoFinalizado = true;
-        document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ la computadora!!!`;
+        document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ la compu!!!`;
     }
 }
 
@@ -143,11 +156,14 @@ function reiniciarMarcadores(){
 }
 
 /* agrego una pista de audio de fondo */
-function musica(){
-    const musicaDeFondo = new Audio("assets/Tetris-large.mp3");
-    musicaDeFondo.volume = 0.1;
-    musicaDeFondo.loop = true;
-    musicaDeFondo.play();
+function musicaDeFondo(){
+    const musica = new Audio("assets/Tetris-large.mp3");
+    musica.volume = 0.1;
+    musica.loop = true;
+    musica.play();
 }
 
-document.body.onload = musica();
+function cambiarNombre(){
+    document.getElementById("div-nombre").style.display = "flex";
+    document.getElementById("div-jugada").style.display = "none";
+}

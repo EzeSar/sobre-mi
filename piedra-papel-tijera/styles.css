@@ -16,8 +16,29 @@ body{
     color: white;
 }
 
+#div-a-jugar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#div-nombre{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#div-jugada{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 button{
-    margin-top: 5px;
+    margin: 10px;
     background-color: #fff;
     border-radius: 6px;
     box-shadow: 0 9px #aaa;
