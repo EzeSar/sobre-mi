@@ -10,7 +10,13 @@ Crear un juego web simple utilizando HTML5, CSS3 y JavaScript que permita a los 
 
 ## Instrucciones de uso
 
-Acá van las instrucciones
+Para poder ***correr localmente*** Piedra, papel o tijera, descargar los archivos desde [mi repositorio de GitHub](https://github.com/EzeSar/sobre-mi/tree/main/piedra-papel-tijera "github.com/EzeSar/sobre-mi/tree/main/piedra-papel-tijera"). Luego ejecutar el archivo ***index.html***.
+
+***Piedra, papel o tijera*** es el clásico juego de manos para 2 oponentes. En este caso nuestro rival es ***La Compu***, que genera su jugada ***aleatoriamente*** al momento de jugar la ronda.
+
+Primero debemos ingresar obligatoriamente nuestro nombre de usuario. Luego elegiremos una de las 3 opciones y al clickear el botón de jugada el sistema nos dará el resultado de la ronda.
+
+Las victorias se suman y quien logre 3 será quien ***gane el juego***. En caso de empate no se suman puntos y se repite la ronda. Al finalizar el juego se reinicia clickeando ***volver a jugar***. También se puede ***cambiar el nombre*** del usuario.
 
 ---
 
@@ -278,3 +284,5 @@ function agregarNombre(){
     }
 }
 ```
+
+---
