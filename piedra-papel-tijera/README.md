@@ -217,7 +217,7 @@ function jugada(){
     if(juegoFinalizado){
         alert("JUEGO FINALIZADO, REINICIAR!!!");
         /* if que detecta nombre vacío */
-    } else if(document.getElementById("nombre").value === ""){
+    } else if(nombreUsuario === ""){
         alert("INGRESA TU NOMBRE!!!");
     /* if que detecta jugada de usuario vacía */
     } else if(jugadaUsuario === ""){
@@ -255,6 +255,27 @@ function obtenerJugadaUsuario(a){
             jugadaUsuario = "tijera";
             jugada();
             break;
+    }
+}
+```
+
+### PARTE 9: Prueba y depuración
+
+* Se prueba el juego con diferentes combinaciones de ***opciones y omiciones*** para comprobar que funcionan correctamente las ***funciones y alertas de errores***.
+
+* Se realizaron ***correcciones y ajustes*** necesarios para solucionar errores y comportamientos inesperados. Por ejemplo, al obtener el ***nombre de usuario*** le agregué un ***límite*** para evitar texto largo:
+
+```javascript
+function agregarNombre(){
+    /* if que obliga a ingresar el nombre */
+    if(document.getElementById("nombre").value === ""){
+        alert("INGRESA TU NOMBRE!!!");
+        /* le agrego un limite de 20 caracteres al nombre para 
+        evitar texto muy largo que pueda generar errores de visualización */
+    } else if(String(document.getElementById("nombre").value).length > 20){
+        alert("NOMBRE MUY LARGO, MAXIMO 20 CARACTERES!!!");
+    } else {
+        nombreUsuario = document.getElementById("nombre").value;
     }
 }
 ```

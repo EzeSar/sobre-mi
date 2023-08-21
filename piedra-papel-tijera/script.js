@@ -14,6 +14,10 @@ function agregarNombre(){
     /* if que obliga a ingresar el nombre */
     if(document.getElementById("nombre").value === ""){
         alert("INGRESA TU NOMBRE!!!");
+        /* le agrego un limite de 20 caracteres al nombre para 
+        evitar texto muy largo que pueda generar errores de visualización */
+    } else if(String(document.getElementById("nombre").value).length > 20){
+        alert("NOMBRE MUY LARGO, MAXIMO 20 CARACTERES!!!");
     } else {
         nombreUsuario = document.getElementById("nombre").value;
     }
@@ -93,7 +97,7 @@ function jugada(){
     if(juegoFinalizado){
         alert("JUEGO FINALIZADO, REINICIAR!!!");
         /* if que detecta nombre vacío */
-    } else if(document.getElementById("nombre").value === ""){
+    } else if(nombreUsuario === ""){
         alert("INGRESA TU NOMBRE!!!");
     /* if que detecta jugada de usuario vacía */
     } else if(jugadaUsuario === ""){
@@ -139,11 +143,11 @@ function reiniciarMarcadores(){
 }
 
 /* agrego una pista de audio de fondo */
-function musicaPlay(){
+function musica(){
     const musicaDeFondo = new Audio("assets/Tetris-large.mp3");
     musicaDeFondo.volume = 0.1;
     musicaDeFondo.loop = true;
     musicaDeFondo.play();
 }
 
-document.body.onload = musicaPlay();
+document.body.onload = musica();
