@@ -1,5 +1,5 @@
 
-/* inicialización de las variables a utilizar */
+/* inicialización de las variables a utilizar globalmente */
 var nombreUsuario = "";
 var jugadaUsuario = "";
 var jugadaCompu;
@@ -31,8 +31,11 @@ function agregarNombre(){
         nombreUsuario = document.getElementById("nombre").value;
         /* luego de captar el nombre se oculta el formulario */
         document.getElementById("div-nombre").style.display = "none";
-        /* y se muestra los botones de jugada */
+        /* y se muestra los botones de jugada, marcadores y reinicio */
         document.getElementById("div-jugada").style.display = "flex";
+        document.getElementById("div-botones").style.display = "flex";
+        document.getElementById("marcador-usuario").innerHTML = `${nombreUsuario} : 0`;
+        document.getElementById("marcador-compu").innerHTML = `Compu : 0`;
     }
 }
 
@@ -100,7 +103,7 @@ function determinarGanador(a,b){
             break;
 
         default:
-            resultadoJugada = "es EMPATE, se vuelve a jugar";
+            resultadoJugada = "es EMPATE , se vuelve a jugar";
         }
 }
 
@@ -128,19 +131,19 @@ function jugada(){
 
 /* función que va actualizando los marcadores luego de cada jugada */
 function actualizarMarcadores(){
-    document.getElementById("resultado-jugada").innerHTML = `${nombreUsuario} eligió ${jugadaUsuario.toUpperCase()}, la compu eligió ${jugadaCompu.toUpperCase()}, ${resultadoJugada} esta ronda!`;
-    document.getElementById("ganados-usuario").innerHTML = `${nombreUsuario} : ${ganadosUsuario}`;
-    document.getElementById("ganados-compu").innerHTML = `Compu : ${ganadosCompu}`;
+    document.getElementById("resultado-ronda").innerHTML = `${nombreUsuario} eligió ${jugadaUsuario.toUpperCase()} , la compu eligió ${jugadaCompu.toUpperCase()} , ${resultadoJugada} esta ronda !`;
+    document.getElementById("marcador-usuario").innerHTML = `${nombreUsuario} : ${ganadosUsuario}`;
+    document.getElementById("marcador-compu").innerHTML = `Compu : ${ganadosCompu}`;
 }
 
 /* función que establece el fin del juego cuando un jugador llega a 3 rondas ganadas */
 function finDelJuego(){
     if(ganadosUsuario === 3){
         juegoFinalizado = true;
-        document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ ${nombreUsuario}!!!`;
+        document.getElementById("resultado-final").innerHTML = `Finalizó el juego en ${rondas} rondas... GANÓ ${nombreUsuario} !!!`;
     } else if(ganadosCompu === 3){
         juegoFinalizado = true;
-        document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ la compu!!!`;
+        document.getElementById("resultado-final").innerHTML = `Finalizó el juego en ${rondas} rondas... GANÓ la compu !!!`;
     }
 }
 
@@ -150,9 +153,10 @@ function reiniciarMarcadores(){
     rondas = 0;
     ganadosCompu = 0;
     ganadosUsuario = 0;
-    document.getElementById("resultado-jugada").innerHTML = "";
-    document.getElementById("ganados-usuario").innerHTML = "";
-    document.getElementById("ganados-compu").innerHTML = "";
+    document.getElementById("resultado-ronda").innerHTML = "";
+    document.getElementById("resultado-final").innerHTML = "";
+    document.getElementById("marcador-usuario").innerHTML = "";
+    document.getElementById("marcador-compu").innerHTML = "";
 }
 
 /* agrego una pista de audio de fondo */

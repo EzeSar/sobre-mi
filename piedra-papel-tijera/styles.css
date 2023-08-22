@@ -37,6 +37,13 @@ body{
     justify-content: center;
 }
 
+#div-botones{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 button{
     margin: 10px;
     background-color: #fff;

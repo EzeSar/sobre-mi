@@ -11,13 +11,15 @@
     <h1>Piedra , papel o tijera ?</h1>
     
     <div id="div-a-jugar">
-        <p>Ganale a LA COMPU !</p>
+
+        <p>GANALE A LA COMPU !</p>
         
         <button onclick="aJugar()">A JUGAR !</button>
     </div>
 
     <div id="div-nombre">
-        <p>INGRESA tu NOMBRE y click en ENVIAR.</p>
+
+        <p>Ingresá tu NOMBRE y hacé click en ENVIAR.</p>
     
         <label>Tu nombre : <input type="text" id="nombre"></label>
         
@@ -25,7 +27,8 @@
     </div>
     
     <div id="div-jugada">
-        <P>Primero ELEGÍ , luego click en JUGADA . Gana quien sume 3 victorias !</P>
+
+        <P>Hacé click en una de las 3 opciones y después en JUGADA .</P>
 
         <div class="botones">
             <button onclick="obtenerJugadaUsuario('piedra')"><img src="assets/piedra.png" width="80px" height="80px" title="Piedra" alt="Piedra"></button>
@@ -35,15 +38,16 @@
             <button onclick="obtenerJugadaUsuario('tijera')"><img src="assets/tijera.png" width="80px" height="80px" title="Tijera" alt="Tijera"></button>
         </div>
 
-        <p>( la jugada de la compu se genera aleatoriamente en el momento )</p>
-
         <button onclick="jugada()">JUGADA</button>
+        
+        <p id="resultado-ronda"></p>
+
+        <p id="resultado-final"> ( gana quien sume 3 victorias ) </p>
     </div>
     
-    <p id="resultado-jugada"></p>
-
     <div class="marcadores">
-        <p id="ganados-usuario"></p>
+
+        <p id="marcador-usuario"></p>
         
         <img src="assets/usuario.gif" alt="usuario" width="120px" height="120px">
         
@@ -51,12 +55,15 @@
         
         <img src="assets/compu.gif" alt="computadora" width="120px" height="120px">
         
-        <p id="ganados-compu"></p>
+        <p id="marcador-compu"></p>
     </div>
 
-    <button onclick="reiniciarMarcadores()">VOLVER A JUGAR</button>
-    
-    <button onclick="cambiarNombre()">CAMBIAR NOMBRE</button>
+    <div id="div-botones">
+        
+        <button onclick="reiniciarMarcadores()">REINICIAR MARCADORES</button>
+        
+        <button onclick="cambiarNombre()">CAMBIAR NOMBRE</button>
+    </div>
 
     <script src="script.js"></script>
 </body>

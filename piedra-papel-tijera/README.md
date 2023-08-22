@@ -58,7 +58,7 @@ function agregarNombre(){
 
 * `index.html`: a cada ***botón*** (piedra, papel y tijera) se le agrega su correspondiente ***imágen*** `<img src=` y evento ***onclick*** `<button onclick=`.
 
-* `script.js`: se incorporan funciones para ***capturar*** la opción seleccionada por el jugador *(esto lo cambié en la parte 8)* y para ***generar aleatoriamente*** la opción del oponente (PC).
+* `script.js`: se incorporan funciones para ***capturar*** la opción seleccionada por el jugador *(esta función la mejoré en la parte 8)* y para ***generar aleatoriamente*** la opción del oponente (PC).
 
  ```javascript
  /* función que genera aleatoriamente la jugada de la compu */
@@ -88,11 +88,13 @@ function elijeTijera(){
 * `index.html`: se agregan los ***marcadores de resultados***.
 
 ```html
-<div class="marcadores">
-        <p id="resultado-jugada"></p>
-        <p id="ganados-usuario"></p>
-        <p id="ganados-compu"></p>
-    </div>
+<p id="resultado-ronda"></p>
+
+<p id="resultado-final"></p>
+
+<p id="marcador-usuario"></p>
+        
+<p id="marcador-compu"></p>
 ```
 
 * `script.js`: se agrega la función `jugada()`, que ejecuta a `determinarGanador(jugadaUsuario,jugadaCompu)` para ***comparar las opciones*** del jugador y del oponente y ***determinar el ganador*** de la ronda.
@@ -152,10 +154,10 @@ function jugada(){
 function finDelJuego(){
     if(ganadosUsuario === 3){
         juegoFinalizado = true;
-        document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ ${nombreUsuario}!!!`;
+        document.getElementById("resultado-final").innerHTML = `Finalizó el juego en ${rondas} rondas... GANÓ ${nombreUsuario} !!!`;
     } else if(ganadosCompu === 3){
         juegoFinalizado = true;
-        document.getElementById("resultado-jugada").innerHTML = `FINALIZÓ el juego en ${rondas} rondas... GANÓ la computadora!!!`;
+        document.getElementById("resultado-final").innerHTML = `Finalizó el juego en ${rondas} rondas... GANÓ la compu !!!`;
     }
 }
 ```
@@ -163,7 +165,7 @@ function finDelJuego(){
 * `index.html`: se agrega un botón que llama a la función `reiniciarMarcadores()` para reiniciar el juego y restablecer los marcadores.
 
 ```html
-<button onclick="reiniciarMarcadores()">VOLVER A JUGAR</button>
+<button onclick="reiniciarMarcadores()">REINICIAR MARCADORES</button>
 ```
 
 ```javascript
@@ -172,9 +174,10 @@ function reiniciarMarcadores(){
     rondas = 0;
     ganadosCompu = 0;
     ganadosUsuario = 0;
-    document.getElementById("resultado-jugada").innerHTML = "";
-    document.getElementById("ganados-usuario").innerHTML = "";
-    document.getElementById("ganados-compu").innerHTML = "";
+    document.getElementById("resultado-ronda").innerHTML = "";
+    document.getElementById("resultado-final").innerHTML = "";
+    document.getElementById("marcador-usuario").innerHTML = "";
+    document.getElementById("marcador-compu").innerHTML = "";
 }
 ```
 
@@ -193,21 +196,21 @@ function reiniciarMarcadores(){
 
 * ***Retroalimentación visual*** cuando se selecciona una opción:
 
-    - se oculta formulario ***nombre*** y botón ***A JUGAR!***
+    - se agregan funciones para ***mostrar y ocultar*** divs con formularios y botones.
     - escalado tamaño `scale: 140%;`
     - desplazamiento eje y `transform: translateY(4px);`
     - cambia la sombra `box-shadow: 0 5px #666;`
 
 * ***Transiciones suaves*** para las animaciones de los botones `transition: 500ms;`.
 
-* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa dentro de la función `agregarNombre()`.
+* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa dentro de la función `aJugar()`.
 
 ```javascript
-function musicaPlay(){
-    const musicaDeFondo = new Audio("assets/musica-retro.mp3");
-    musicaDeFondo.volume = 0.1;
-    musicaDeFondo.loop = true;
-    musicaDeFondo.play();
+function musicaDeFondo(){
+    const musica = new Audio("assets/Tetris-large.mp3");
+    musica.volume = 0.1;
+    musica.loop = true;
+    musica.play();
 }
 ```
 ### PARTE 8: Comentarios explicativos y optimización del código
@@ -279,8 +282,11 @@ function agregarNombre(){
         nombreUsuario = document.getElementById("nombre").value;
         /* luego de captar el nombre se oculta el formulario */
         document.getElementById("div-nombre").style.display = "none";
-        /* y se muestra los botones de jugada */
+        /* y se muestra los botones de jugada, marcadores y reinicio */
         document.getElementById("div-jugada").style.display = "flex";
+        document.getElementById("div-botones").style.display = "flex";
+        document.getElementById("marcador-usuario").innerHTML = `${nombreUsuario} : 0`;
+        document.getElementById("marcador-compu").innerHTML = `Compu : 0`;
     }
 }
 ```
