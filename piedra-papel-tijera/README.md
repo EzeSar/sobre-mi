@@ -199,7 +199,7 @@ function reiniciarMarcadores(){
 
 * ***Transiciones suaves*** para las animaciones de los botones `transition: 500ms;`.
 
-* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa dentro de la función `aJugar()`. 
+* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa dentro de la función `aJugar()`. También agregué posteriormente un botón MUSICA NO y uno MUSICA SI. 
 ***Esta parte fue la que mas me dio problemas, porque en un principio lo hacía correr directamente ejecutando la función `musica.play()`, pero dejaba de funcionar o directamente no andaba. Despúes probé iniciandola al cargarse el body con `body onload="myFunction()"`, pero también fallaba. Di algunas vueltas al código buscando si era error de sintaxis o de implementación, no sabía. Pero investigando leí que algunos navegadores bloquean esas funciones que cargan automaticamente. Así que opté por llamar la función al clickear algún botón. En principio usé el submit del nombre y ya funcionaba perfecto. Después se me ocurrió implementar el formato como quedó finalmente el ingreso al juego y quedó así.***
 
 ```javascript
@@ -222,7 +222,7 @@ function aJugar(){
     /* se oculta el primer texto y el botón a jugar! */
     document.getElementById("div-a-jugar").style.display = "none";
     /* y se activa la música de fondo */
-    musicaDeFondo();
+    musicaSi();
 }
 ```
 
