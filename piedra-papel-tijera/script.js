@@ -15,7 +15,7 @@ function aJugar(){
     /* se oculta el primer texto y el botón a jugar! */
     document.getElementById("div-a-jugar").style.display = "none";
     /* y se activa la música de fondo */
-    musicaDeFondo();
+    musicaSi();
 }
 
 /* Funcion que toma el nombre */
@@ -126,6 +126,8 @@ function jugada(){
     jugadaUsuario = "";
     /* al finalizar la jugada se ejecuta el chequeo de finalización del juego */
     finDelJuego();
+    document.getElementById("div-resultados").style.display = "flex";
+    document.getElementById("div-jugada").style.display = "none";
     }
 }
 
@@ -153,21 +155,37 @@ function reiniciarMarcadores(){
     rondas = 0;
     ganadosCompu = 0;
     ganadosUsuario = 0;
-    document.getElementById("resultado-ronda").innerHTML = "";
-    document.getElementById("resultado-final").innerHTML = "";
-    document.getElementById("marcador-usuario").innerHTML = "";
-    document.getElementById("marcador-compu").innerHTML = "";
+    document.getElementById("resultado-ronda").innerHTML = "Marcadores reiniciados... listo para jugar!";
+    document.getElementById("resultado-final").innerHTML = "( gana quien sume 3 victorias )";
+    document.getElementById("marcador-usuario").innerHTML = `${nombreUsuario} : 0`;
+    document.getElementById("marcador-compu").innerHTML = `Compu : 0`;
 }
 
-/* agrego una pista de audio de fondo */
-function musicaDeFondo(){
-    const musica = new Audio("assets/Tetris-large.mp3");
+/* agrego una pista de audio de fondo y sus funciones Si y No */
+const musica = new Audio("assets/Tetris-large.mp3");
+
+function musicaSi(){
     musica.volume = 0.1;
     musica.loop = true;
     musica.play();
 }
 
+function musicaNo(){
+    musica.volume = 0;
+}
+
 function cambiarNombre(){
     document.getElementById("div-nombre").style.display = "flex";
     document.getElementById("div-jugada").style.display = "none";
+    document.getElementById("div-resultados").style.display = "none";
+}
+
+function siguiente(){
+    /* if que detecta juego finalizado */
+    if(juegoFinalizado){
+        alert("JUEGO FINALIZADO, REINICIAR!!!");
+    } else {
+        document.getElementById("div-resultados").style.display = "none";
+        document.getElementById("div-jugada").style.display = "flex";
+    }
 }

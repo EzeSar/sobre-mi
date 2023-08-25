@@ -40,18 +40,25 @@
 
         <button onclick="jugada()">JUGADA</button>
         
-        <p id="resultado-ronda"></p>
-
-        <p id="resultado-final"> ( gana quien sume 3 victorias ) </p>
     </div>
     
+    <div id="div-resultados">
+        
+        <p id="resultado-ronda"></p>
+        
+        <p id="resultado-final">( gana quien sume 3 victorias )</p>
+            
+        <button onclick="siguiente()">SIGUIENTE</button>
+                
+    </div>
+
     <div class="marcadores">
 
         <p id="marcador-usuario"></p>
         
         <img src="assets/usuario.gif" alt="usuario" width="120px" height="120px">
         
-        <p> VS </p>
+        <img src="assets/vs-letters.webp" alt="VS" width="120px" height="120px">
         
         <img src="assets/compu.gif" alt="computadora" width="120px" height="120px">
         
@@ -63,6 +70,11 @@
         <button onclick="reiniciarMarcadores()">REINICIAR MARCADORES</button>
         
         <button onclick="cambiarNombre()">CAMBIAR NOMBRE</button>
+
+        <button onclick="musicaNo()">MUSICA NO</button>
+
+        <button onclick="musicaSi()">MUSICA SI</button>
+
     </div>
 
     <script src="script.js"></script>

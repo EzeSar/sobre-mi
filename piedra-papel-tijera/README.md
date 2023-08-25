@@ -98,7 +98,6 @@ function elijeTijera(){
 ```
 
 * `script.js`: se agrega la función `jugada()`, que ejecuta a `determinarGanador(jugadaUsuario,jugadaCompu)` para ***comparar las opciones*** del jugador y del oponente y ***determinar el ganador*** de la ronda.
-
     - Se agrega función `actualizarMarcadores()` que ***actualiza los marcadores*** luego de cada ronda.
 
 ```javascript
@@ -118,7 +117,6 @@ function jugada(){
 
 * Se establece que el juego se juega al mejor de ***5 rondas***.
 * `script.js`: se crea una variable `rondas` para contar las rondas, y una función `finDelJuego()` para verificar si alguno de los jugadores ha alcanzado ***3 victorias***.
-
     - Se agrega detección de ***juego finalizado*** a `jugada()`.
 
 ```javascript
@@ -184,7 +182,6 @@ function reiniciarMarcadores(){
 ### PARTE 7: Mejoras y personalización
 
 * Agrego ***más estilos*** CSS:
-
     - Imagen gif de fondo al body `background-image: url`
     - color y sombras al texto `text-shadow:
     1px 1px 2px black,
@@ -195,7 +192,6 @@ function reiniciarMarcadores(){
     - imagenes ***gif*** para los marcadores de ***usuario y computadora***.
 
 * ***Retroalimentación visual*** cuando se selecciona una opción:
-
     - se agregan funciones para ***mostrar y ocultar*** divs con formularios y botones.
     - escalado tamaño `scale: 140%;`
     - desplazamiento eje y `transform: translateY(4px);`
@@ -203,16 +199,33 @@ function reiniciarMarcadores(){
 
 * ***Transiciones suaves*** para las animaciones de los botones `transition: 500ms;`.
 
-* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa dentro de la función `aJugar()`.
+* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa dentro de la función `aJugar()`. 
+***Esta parte fue la que mas me dio problemas, porque en un principio lo hacía correr directamente ejecutando la función `musica.play()`, pero dejaba de funcionar o directamente no andaba. Despúes probé iniciandola al cargarse el body con `body onload="myFunction()"`, pero también fallaba. Di algunas vueltas al código buscando si era error de sintaxis o de implementación, no sabía. Pero investigando leí que algunos navegadores bloquean esas funciones que cargan automaticamente. Así que opté por llamar la función al clickear algún botón. En principio usé el submit del nombre y ya funcionaba perfecto. Después se me ocurrió implementar el formato como quedó finalmente el ingreso al juego y quedó así.***
 
 ```javascript
-function musicaDeFondo(){
-    const musica = new Audio("assets/Tetris-large.mp3");
+/* agrego una pista de audio de fondo y sus funciones Si y No */
+const musica = new Audio("assets/Tetris-large.mp3");
+
+function musicaSi(){
     musica.volume = 0.1;
     musica.loop = true;
     musica.play();
 }
+
+function musicaNo(){
+    musica.volume = 0;
+}
+
+function aJugar(){
+    /* se muestra el formulario para el nombre */
+    document.getElementById("div-nombre").style.display = "flex";
+    /* se oculta el primer texto y el botón a jugar! */
+    document.getElementById("div-a-jugar").style.display = "none";
+    /* y se activa la música de fondo */
+    musicaDeFondo();
+}
 ```
+
 ### PARTE 8: Comentarios explicativos y optimización del código
 
 * Se agrega ***comentarios*** en el código JavaScript para explicar el propósito de cada función y sección del código. Por ejemplo:
@@ -271,24 +284,22 @@ function obtenerJugadaUsuario(a){
 
 ```javascript
 function agregarNombre(){
-    /* if que obliga a ingresar el nombre */
     if(document.getElementById("nombre").value === ""){
         alert("INGRESA TU NOMBRE!!!");
         /* le agrego un limite de 20 caracteres al nombre para 
         evitar texto muy largo que pueda generar errores de visualización */
     } else if(String(document.getElementById("nombre").value).length > 20){
         alert("NOMBRE MUY LARGO, MAXIMO 20 CARACTERES!!!");
-    } else {
-        nombreUsuario = document.getElementById("nombre").value;
-        /* luego de captar el nombre se oculta el formulario */
-        document.getElementById("div-nombre").style.display = "none";
-        /* y se muestra los botones de jugada, marcadores y reinicio */
-        document.getElementById("div-jugada").style.display = "flex";
-        document.getElementById("div-botones").style.display = "flex";
-        document.getElementById("marcador-usuario").innerHTML = `${nombreUsuario} : 0`;
-        document.getElementById("marcador-compu").innerHTML = `Compu : 0`;
+    } else { ...
+
     }
 }
 ```
+
+---
+
+## Autor ✒️
+
+* **Ezequiel Sarmiento** - [EzeSar](https://github.com/EzeSar "github.com/EzeSar") - eservicesupply@gmail.com
 
 ---

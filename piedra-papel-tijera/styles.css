@@ -9,9 +9,10 @@ body{
     background-position: center;
     background-size: cover;
     font-weight: bold;
+    font-size: large;
     text-shadow:
     1px 1px 2px black,
-    0 0 1em blue,
+    0 0 1.5em blue,
     0 0 0.2em blue;
     color: white;
 }
@@ -23,21 +24,14 @@ body{
     justify-content: center;
 }
 
-#div-nombre{
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#div-jugada{
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 #div-botones{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#div-nombre, #div-jugada, #div-resultados{
     display: none;
     flex-direction: column;
     align-items: center;
@@ -46,7 +40,16 @@ body{
 
 button{
     margin: 10px;
-    background-color: #fff;
+    background-image: url(assets/abstract-gold-glossy-stylish-background-vector.jpg);
+    background-position: center;
+    background-size: cover;
+    font-weight: bold;
+    font-size: large;
+    text-shadow:
+    1px 1px 2px black,
+    0 0 1.5em blue,
+    0 0 0.2em blue;
+    color: white;
     border-radius: 6px;
     box-shadow: 0 9px #aaa;
 }
@@ -57,7 +60,7 @@ button:hover {
 }
 
 button:active {
-    box-shadow: 0 5px #666;
+    box-shadow: 0 5px #777;
     transform: translateY(4px);
 }
 
