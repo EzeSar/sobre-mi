@@ -12,11 +12,13 @@ Crear un juego web simple utilizando HTML5, CSS3 y JavaScript que permita a los 
 
 Para poder ***correr localmente*** Piedra, papel o tijera, descargar los archivos desde [mi repositorio de GitHub](https://github.com/EzeSar/sobre-mi/tree/main/piedra-papel-tijera "github.com/EzeSar/sobre-mi/tree/main/piedra-papel-tijera"). Luego ejecutar el archivo ***index.html***.
 
-***Piedra, papel o tijera*** es el clásico juego de manos para 2 oponentes. En este caso nuestro rival es ***La Compu***, que genera su jugada ***aleatoriamente*** al momento de jugar la ronda.
+***Piedra, papel o tijera*** es el clásico juego de manos para 2 oponentes. En este caso nuestro rival es ***La Compu***, que genera su jugada ***aleatoriamente*** en cada ronda.
 
-Primero debemos ingresar obligatoriamente nuestro nombre de usuario. Luego elegiremos una de las 3 opciones y al clickear el botón de jugada el sistema nos dará el resultado de la ronda.
+Primero debemos clickear ***a jugar!*** y después ingresar obligatoriamente nuestro ***nombre de usuario***. Luego elegiremos una de las ***3 opciones*** y al clickear el botón de ***jugada*** el sistema nos dará el resultado de la ronda.
 
-Las victorias se suman y quien logre 3 será quien ***gane el juego***. En caso de empate no se suman puntos y se repite la ronda. Al finalizar el juego se reinicia clickeando ***volver a jugar***. También se puede ***cambiar el nombre*** del usuario.
+Las victorias de cada ronda se van sumando y quien logre 3 será quien ***gane el juego***. En caso de empate no se suman puntos y se vuelve a jugar la ronda. Al finalizar el juego se reinicia clickeando ***reiniciar marcadores***. También se puede ***cambiar el nombre*** del usuario.
+
+El juego tiene automáticamente una ***música de fondo***, que puede ser silenciada con el botón ***MUSICA NO***, y volver con el botón ***MUSICA SI***.
 
 ---
 
@@ -193,14 +195,16 @@ function reiniciarMarcadores(){
 
 * ***Retroalimentación visual*** cuando se selecciona una opción:
     - se agregan funciones para ***mostrar y ocultar*** divs con formularios y botones.
-    - escalado tamaño `scale: 140%;`
-    - desplazamiento eje y `transform: translateY(4px);`
-    - cambia la sombra `box-shadow: 0 5px #666;`
+    - escalado tamaño `button:hover {scale:`
+    - desplazamiento eje y `button:active {transform:`
+    - cambia la sombra `button:active {box-shadow:`
+    - gira la imagen de la opción de jugada al clickearla `.botones>button:active{-webkit-transform: rotate(360deg)`
+    - cambia el borde del botón de la opción de jugada seleccionada `.botones>button:focus{border:`
 
-* ***Transiciones suaves*** para las animaciones de los botones `transition: 500ms;`.
+* ***Transiciones suaves*** para las animaciones de los botones `transition: 300ms;`.
 
-* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa dentro de la función `aJugar()`. También agregué posteriormente un botón MUSICA NO y uno MUSICA SI. 
-***Esta parte fue la que mas me dio problemas, porque en un principio lo hacía correr directamente ejecutando la función `musica.play()`, pero dejaba de funcionar o directamente no andaba. Despúes probé iniciandola al cargarse el body con `body onload="myFunction()"`, pero también fallaba. Di algunas vueltas al código buscando si era error de sintaxis o de implementación, no sabía. Pero investigando leí que algunos navegadores bloquean esas funciones que cargan automaticamente. Así que opté por llamar la función al clickear algún botón. En principio usé el submit del nombre y ya funcionaba perfecto. Después se me ocurrió implementar el formato como quedó finalmente el ingreso al juego y quedó así.***
+* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa dentro de la función `aJugar()`. También agregué posteriormente un botón ***MUSICA NO*** y uno ***MUSICA SI***. 
+**Esta parte fue la que mas me dio problemas, porque en un principio lo hacía correr directamente ejecutando la función `musica.play()`, pero dejaba de funcionar o directamente no andaba. Despúes probé iniciandola al cargarse el body con `body onload="myFunction()"`, pero también fallaba. Di algunas vueltas al código buscando si era error de sintaxis o de implementación, no sabía. Pero investigando leí que algunos navegadores bloquean esas funciones que cargan automaticamente la ejecución de video o sonido. Así que opté por llamar la función al clickear algún botón. En principio usé el submit del nombre y ya funcionaba perfecto. Después se me ocurrió implementar el formato como quedó finalmente el ingreso al juego y quedó así.**
 
 ```javascript
 /* agrego una pista de audio de fondo y sus funciones Si y No */
@@ -228,7 +232,7 @@ function aJugar(){
 
 ### PARTE 8: Comentarios explicativos y optimización del código
 
-* Se agrega ***comentarios*** en el código JavaScript para explicar el propósito de cada función y sección del código. Por ejemplo:
+* Se agrega ***comentarios*** en el código ***JavaScript*** para explicar el propósito de cada función y sección del código. Por ejemplo:
 
 ```javascript
 /* función que ejecuta la jugada */
@@ -280,7 +284,7 @@ function obtenerJugadaUsuario(a){
 
 * Se prueba el juego con diferentes combinaciones de ***opciones y omiciones*** para comprobar que funcionan correctamente las ***funciones y alertas de errores***.
 
-* Se realizaron ***correcciones y ajustes*** necesarios para solucionar errores y comportamientos inesperados. Por ejemplo, al obtener el ***nombre de usuario*** le agregué un ***límite*** para evitar texto largo:
+* Se realizaron ***correcciones y ajustes*** necesarios para solucionar errores y comportamientos inesperados. Por ejemplo, al obtener el ***nombre de usuario*** le agregué un ***límite*** para evitar texto largo que no se pueda visualizar correctamente:
 
 ```javascript
 function agregarNombre(){
@@ -295,6 +299,72 @@ function agregarNombre(){
     }
 }
 ```
+
+### Detalles y retoques finales
+
+Despúes de comprobar la funcionalidad y todo lo visto anteriormente ( y antes de empezar con el juego extra ), me fueron surgiendo ideas y retoques para mejorar ( a mi gusto obviamente jaja ) la visualización o algún detalle estético... Por ejemplo lo de ocultar botones y otras partes según se vayan necesitando en el juego, también le cambié de flex a grid los marcadores ( después de la clase sobre grid ).
+
+```html
+<div class="marcadores">
+
+        <p id="marcador-usuario"></p>
+        
+        <img id="img-usuario" src="assets/usuario.gif" alt="usuario" width="120px" height="120px">
+        
+        <img id="img-vs" src="assets/vs-letters.webp" alt="VS" width="120px" height="120px">
+        
+        <img id="img-compu" src="assets/compu.gif" alt="computadora" width="120px" height="120px">
+        
+        <p id="marcador-compu"></p>
+    </div>
+```
+
+```css
+.marcadores {
+    display: grid;
+    grid-template-areas: 
+        "us us vs vs co co"
+        "us us vs vs co co"
+        "mu mu mu mc mc mc";
+    justify-items: center;
+}
+
+#img-usuario{
+    grid-area: us;
+}
+
+#img-vs{
+    grid-area: vs;
+}
+
+#img-compu{
+    grid-area: co;
+}
+
+#marcador-usuario{
+    grid-area: mu;
+    font-size: larger;
+}
+
+#marcador-compu{
+    grid-area: mc;
+    font-size: larger;
+}
+```
+
+![print de pantalla](assets/print-de-pantalla.png "print de pantalla")
+
+---
+
+## Construido con 🛠️
+#### Built with 🛠️
+
+* [Visual Studio Code](https://code.visualstudio.com "code.visualstudio.com")
+* [GitHub](https://github.com "github.com")
+* [GitHub desktop](https://desktop.github.com "desktop.github.com")
+* [Html5](https://html.spec.whatwg.org/multipage/ "html.spec.whatwg.org")
+* [CSS](https://www.w3.org/Style/CSS/ "www.w3.org/Style/CSS")
+* [Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript "developer.mozilla.org/es/docs/Web/JavaScript")
 
 ---
 

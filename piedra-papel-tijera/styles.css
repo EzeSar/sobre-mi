@@ -1,3 +1,9 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
 body{
     width: 100vw;
     height: 100vh;
@@ -12,9 +18,12 @@ body{
     font-size: large;
     text-shadow:
     1px 1px 2px black,
-    0 0 1.5em blue,
-    0 0 0.2em blue;
+    0 0 0.6em blue;
     color: white;
+}
+
+h1{
+    margin-bottom: 50px;
 }
 
 #div-a-jugar{
@@ -29,6 +38,7 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
 }
 
 #div-nombre, #div-jugada, #div-resultados{
@@ -40,6 +50,7 @@ body{
 
 button{
     margin: 10px;
+    padding: 3px;
     background-image: url(assets/abstract-gold-glossy-stylish-background-vector.jpg);
     background-position: center;
     background-size: cover;
@@ -47,16 +58,16 @@ button{
     font-size: large;
     text-shadow:
     1px 1px 2px black,
-    0 0 1.5em blue,
-    0 0 0.2em blue;
+    0 0 0.3em red;
     color: white;
+    border: 3px solid grey;
     border-radius: 6px;
     box-shadow: 0 9px #aaa;
 }
 
 button:hover {
-    scale: 140%;
-    transition: 500ms;
+    scale: 120%;
+    transition: 300ms;
 }
 
 button:active {
@@ -64,11 +75,41 @@ button:active {
     transform: translateY(4px);
 }
 
+.botones>button:focus{
+    border: 6px solid red;
+}
+
+.botones>button:active{
+    -webkit-transform: rotate(360deg);transform: rotate(360deg);
+}
+
 .marcadores {
-    font-size: medium;
-    font-weight: bold;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-areas: 
+        "us us vs vs co co"
+        "us us vs vs co co"
+        "mu mu mu mc mc mc";
+    justify-items: center;
+}
+
+#img-usuario{
+    grid-area: us;
+}
+
+#img-vs{
+    grid-area: vs;
+}
+
+#img-compu{
+    grid-area: co;
+}
+
+#marcador-usuario{
+    grid-area: mu;
+    font-size: larger;
+}
+
+#marcador-compu{
+    grid-area: mc;
+    font-size: larger;
 }

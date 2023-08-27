@@ -67,37 +67,37 @@ function obtenerJugadaUsuario(a){
 function determinarGanador(a,b){
     switch(a+b){
         case "piedrapapel":
-            resultadoJugada = `la compu GANA`;
+            resultadoJugada = `la compu gana`;
             ganadosCompu++;
             rondas++;
             break;
         
         case "piedratijera":
-            resultadoJugada = `${nombreUsuario} GANA`;
+            resultadoJugada = `${nombreUsuario} gana`;
             ganadosUsuario++;
             rondas++;
             break;
         
         case "papelpiedra":
-            resultadoJugada = `${nombreUsuario} GANA`;
+            resultadoJugada = `${nombreUsuario} gana`;
             ganadosUsuario++;
             rondas++;
             break;
 
         case "papeltijera":
-            resultadoJugada = `la compu GANA`;
+            resultadoJugada = `la compu gana`;
             ganadosCompu++;
             rondas++;
             break;
 
         case "tijerapiedra":
-            resultadoJugada = `la compu GANA`;
+            resultadoJugada = `la compu gana`;
             ganadosCompu++;
             rondas++;
             break;
 
         case "tijerapapel":
-            resultadoJugada = `${nombreUsuario} GANA`;
+            resultadoJugada = `${nombreUsuario} gana`;
             ganadosUsuario++;
             rondas++;
             break;
@@ -149,6 +149,17 @@ function finDelJuego(){
     }
 }
 
+/* con esta función se vuelve a mostrar las opciones de jugada para continuar el juego */
+function siguiente(){
+    /* if que detecta juego finalizado */
+    if(juegoFinalizado){
+        alert("JUEGO FINALIZADO, REINICIAR!!!");
+    } else {
+        document.getElementById("div-resultados").style.display = "none";
+        document.getElementById("div-jugada").style.display = "flex";
+    }
+}
+
 /* función para reiniciar los marcadores y el juego */
 function reiniciarMarcadores(){
     juegoFinalizado = false;
@@ -174,18 +185,9 @@ function musicaNo(){
     musica.volume = 0;
 }
 
+/* para cambiar el nombre se muestra el formulario y se oculta jugada y resultados */
 function cambiarNombre(){
     document.getElementById("div-nombre").style.display = "flex";
     document.getElementById("div-jugada").style.display = "none";
     document.getElementById("div-resultados").style.display = "none";
-}
-
-function siguiente(){
-    /* if que detecta juego finalizado */
-    if(juegoFinalizado){
-        alert("JUEGO FINALIZADO, REINICIAR!!!");
-    } else {
-        document.getElementById("div-resultados").style.display = "none";
-        document.getElementById("div-jugada").style.display = "flex";
-    }
 }
