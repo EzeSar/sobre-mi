@@ -356,8 +356,18 @@ Despúes de comprobar la funcionalidad y todo lo visto anteriormente ( y antes d
 
 ---
 
+### PARTE Estrella: Opcional
+
+#### Pista de carreras
+
+1. Con la base de CarGame crea un juego donde el ```<canvas>``` sea una pista de carrera por donde deba ir nuestro autito y completar 3 vueltas.
+2. Si completa las 3 vueltas sin irse de la pista y sin chocar avanza de nivel.
+3. El juego debe tener al menos 3 niveles. En cada nivel, la pista debe volverse más compleja, con más obstáculos y curvas, y la velocidad del autito debe aumentar a medida que avanzó de nivel.
+4. Tengo 3 vidas para completar todos los niveles para ganar el juego.
+
+---
+
 ## Construido con 🛠️
-#### Built with 🛠️
 
 * [Visual Studio Code](https://code.visualstudio.com "code.visualstudio.com")
 * [GitHub](https://github.com "github.com")
