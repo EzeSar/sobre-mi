@@ -1,25 +1,23 @@
-var autitoSize = 20;
+var longAutito = 20;
 var filTotal = 20; //numero total de filas
 var colTotal = 40; //numero total de columnas
 var tablero;
 var ctx;
 
 //posicion inicial del autito
-var autitoX = 0;
-var autitoY = 40;
+var autitoX = 20;
+var autitoY = 60;
 
 var movX = 0; //movimiento del autito en coordenadas X
 var movY = 0; //movimiento del autito en coordenadas Y
-
-var autito;
 
 var finDelJuego = false;
 
 window.onload = function () {
 	// Seteo del alto y ancho del tablero
 	tablero = document.getElementById("tablero");
-	tablero.height = filTotal * autitoSize;
-	tablero.width = colTotal * autitoSize;
+	tablero.height = filTotal * longAutito;
+	tablero.width = colTotal * longAutito;
 	ctx = tablero.getContext("2d");
 
 	document.addEventListener("keyup", cambiarDireccion); //movimientos
@@ -29,28 +27,34 @@ window.onload = function () {
 
 function update() {
 	if (finDelJuego) {
-		return;
+		document.getElementById("h1").innerHTML="fin del juego!!!";
+	} else {
+	
+		pintarBorde();
+		pintarTablero();
+		
+		pintarPasto1();
+		pintarPasto2();
+		pintarMeta();	
+	
+		posicionAutito();
+	
+		chocado();
+
+		pintarAutito();
 	}
 
-	pintarTablero();
-	
-    pintarBorde1();
-    pintarBorde2();
-    pintarMeta();
+}
 
-	posicionAutito();
-
-	afuera(); 
-	chocado();
-    
-    pintarAutito();
-
+function pintarBorde(){
+	ctx.fillStyle = "rgb(0,255,0)";
+    ctx.fillRect(0, 0, tablero.width, tablero.height);
 }
 
 function pintarTablero(){
     // Background del juego
 	ctx.fillStyle = "black";
-	ctx.fillRect(0, 0, tablero.width, tablero.height);
+	ctx.fillRect(20, 20, tablero.width - 40, tablero.height - 40);
 }
 
 // Movimiento del autito - usamos addEventListener
@@ -80,46 +84,29 @@ function cambiarDireccion(e) {
 
 //actualizar posicion del autito
 function posicionAutito(){
-    autitoX += movX * autitoSize; //actualizando la posicion del autito en las coordenadas X
-    autitoY += movY * autitoSize; //actualizando la posicion del autito en las coordenadas Y
-    autito = ctx.getImageData(autitoX, autitoY, autitoSize, autitoSize);
-}
-
-function afuera() {
-	if (autitoX < 0
-		|| autitoX > colTotal * autitoSize
-		|| autitoY < 0
-		|| autitoY > filTotal * autitoSize) {
-		
-		// condicion afuera del tablero
-		finDelJuego = true;
-		alert("PERDISTE!!!");
-	}
+    autitoX += movX * longAutito; //actualizando la posicion del autito en las coordenadas X
+    autitoY += movY * longAutito; //actualizando la posicion del autito en las coordenadas Y
 }
 
 //Deteccion de colision con los bordes, obstaculos o con la meta
 function chocado() {
+    var autito = ctx.getImageData(autitoX, autitoY, longAutito, longAutito);
 
     var pixels = 400; //Porque la imagen es de 20x20 pixels
     var elementos = 400*4; //Porque cada pixel tiene 4 bytes (RGBA)
 
-    //Recorro en busca del rojo (borde/obstaculo) o del blanco (meta)
+    //Recorro en busca del verde (borde/obstaculo) o del blanco (meta)
     for (var i = 0; i < elementos; i += 4){
 
-        //rojo (255, 0, 0)
-        if (autito.data[i] == 255 && autito.data[i+1] == 0 && autito.data[i+2] == 0){
-            //var mensaje = "¡Lo siento! Has chocado con un asteroide.Pincha AQUÍ para volver a intentarlo.";
-            //finalizar(mensaje);
+        //verde (0, 255, 0)
+        if (autito.data[i] == 0 && autito.data[i+1] == 255 && autito.data[i+2] == 0){
             finDelJuego = true;
-            alert("chocaste!")
             break;
         }
 
         //blanco (255, 255, 255)
         if (autito.data[i] == 255 && autito.data[i+1] == 255 && autito.data[i+2] == 255){
-            //var mensaje = "¡Enhorabuena! Has llegado a la base.Pincha AQUÍ para volver a jugar.";
-            //finalizar(mensaje);
-            alert("llegaste!")
+            alert("llegaste!");
             break;
         }
 
@@ -129,31 +116,26 @@ function chocado() {
 
 //pintar el autito
 function pintarAutito(){
-    ctx.fillStyle = "blue";
-	ctx.fillRect(autitoX, autitoY, autitoSize, autitoSize);
+    ctx.fillStyle = "red";
+	ctx.fillRect(autitoX, autitoY, longAutito, longAutito);
 }
 
 //Pintar los bordes internos y obstaculos
-function pintarBorde1(){
-    ctx.fillStyle = "red";
-    ctx.beginPath();
-    ctx.rect(0, 100, 100, 20);
-    ctx.closePath();
-    ctx.fill();
+function pintarPasto1(){
+    ctx.fillStyle = "rgb(0,255,0)";
+    ctx.fillRect(20, 120, 100, 20);
 }
 
-function pintarBorde2(){
-    ctx.fillStyle = "red";
-    ctx.beginPath();
-    ctx.rect(100, 100, tablero.width - 200, tablero.height - 200);
-    ctx.closePath();
-    ctx.fill();
+function pintarPasto2(){
+    ctx.fillStyle = "rgb(0,255,0)";
+    ctx.fillRect(120, 120, tablero.width - 220, tablero.height - 220);
 }
 
 function pintarMeta(){
-    ctx.fillStyle = "white";
-    ctx.beginPath();
-    ctx.rect(0, 120, 100, 20);
-    ctx.closePath();
-    ctx.fill();
+    ctx.fillStyle = "rgb(255,255,255)";
+    ctx.fillRect(20, 140, 100, 20);
+}
+
+function reiniciar(){
+	location.reload();
 }
