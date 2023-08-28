@@ -26,16 +26,18 @@ window.onload = function () {
 }
 
 function update() {
+
 	if (finDelJuego) {
-		document.getElementById("h1").innerHTML="fin del juego!!!";
+		document.getElementById("h1").innerHTML="Fin del juego";
 	} else {
 	
 		pintarBorde();
+
 		pintarTablero();
-		
-		pintarPasto1();
-		pintarPasto2();
+
 		pintarMeta();	
+		
+		pintarNivel1();
 	
 		posicionAutito();
 	
@@ -47,12 +49,13 @@ function update() {
 }
 
 function pintarBorde(){
+	//fondo verde y arriba despues va el tablero negro para la pista
 	ctx.fillStyle = "rgb(0,255,0)";
     ctx.fillRect(0, 0, tablero.width, tablero.height);
 }
 
 function pintarTablero(){
-    // Background del juego
+    // tablero negro para la pista
 	ctx.fillStyle = "black";
 	ctx.fillRect(20, 20, tablero.width - 40, tablero.height - 40);
 }
@@ -100,13 +103,15 @@ function chocado() {
 
         //verde (0, 255, 0)
         if (autito.data[i] == 0 && autito.data[i+1] == 255 && autito.data[i+2] == 0){
+			document.getElementById("h2").innerHTML="PERDISTE!!!";
             finDelJuego = true;
             break;
         }
 
         //blanco (255, 255, 255)
         if (autito.data[i] == 255 && autito.data[i+1] == 255 && autito.data[i+2] == 255){
-            alert("llegaste!");
+            document.getElementById("h2").innerHTML="GANASTE!!!";
+			finDelJuego = true;
             break;
         }
 
@@ -116,26 +121,51 @@ function chocado() {
 
 //pintar el autito
 function pintarAutito(){
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "rgb(255,0,0)";
 	ctx.fillRect(autitoX, autitoY, longAutito, longAutito);
 }
 
-//Pintar los bordes internos y obstaculos
-function pintarPasto1(){
-    ctx.fillStyle = "rgb(0,255,0)";
-    ctx.fillRect(20, 120, 100, 20);
-}
-
-function pintarPasto2(){
+//Pintar el pasto interno y obstaculos NIVEL 1
+function pintarNivel1(){
+	//pasto
     ctx.fillStyle = "rgb(0,255,0)";
     ctx.fillRect(120, 120, tablero.width - 220, tablero.height - 220);
+	//obstaculos
+	
 }
 
+//pintar la meta de llegada
 function pintarMeta(){
+	//linea verde
+    ctx.fillStyle = "rgb(0,255,0)";
+    ctx.fillRect(20, 120, 100, 20);
+	//cuadricula
     ctx.fillStyle = "rgb(255,255,255)";
-    ctx.fillRect(20, 140, 100, 20);
+    ctx.fillRect(20, 140, 100, 10);
+	ctx.fillRect(20, 150, 10, 10);
+	ctx.fillRect(40, 150, 10, 10);
+	ctx.fillRect(60, 150, 10, 10);
+	ctx.fillRect(80, 150, 10, 10);
+	ctx.fillRect(100, 150, 10, 10);
+	ctx.fillRect(30, 160, 10, 10);
+	ctx.fillRect(50, 160, 10, 10);
+	ctx.fillRect(70, 160, 10, 10);
+	ctx.fillRect(90, 160, 10, 10);
+	ctx.fillRect(110, 160, 10, 10);
+	ctx.fillRect(20, 170, 10, 10);
+	ctx.fillRect(40, 170, 10, 10);
+	ctx.fillRect(60, 170, 10, 10);
+	ctx.fillRect(80, 170, 10, 10);
+	ctx.fillRect(100, 170, 10, 10);
+	ctx.fillRect(30, 180, 10, 10);
+	ctx.fillRect(50, 180, 10, 10);
+	ctx.fillRect(70, 180, 10, 10);
+	ctx.fillRect(90, 180, 10, 10);
+	ctx.fillRect(110, 180, 10, 10);
+	ctx.fillRect(20, 190, 100, 10);
 }
 
+//boton de reinicio
 function reiniciar(){
 	location.reload();
 }

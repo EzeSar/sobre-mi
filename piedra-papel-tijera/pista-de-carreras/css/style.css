@@ -15,7 +15,23 @@ body{
     font-size: large;
     text-shadow:
     2px 2px 2px black;
-    color: yellow;
+    color: rgb(0, 255, 0);
     background-image: url("assets/ilustracion-pista-carreras.png");
+    background-size: cover;
+}
+
+h1, h2, button{
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+button{
+    font-size: medium;
+    font-weight: bold;
+    text-shadow:
+    2px 2px 2px black;
+    color: rgb(0, 255, 0);
+    background-image: url("assets/race_flag.jpeg");
+    background-position: center;
     background-size: cover;
 }
