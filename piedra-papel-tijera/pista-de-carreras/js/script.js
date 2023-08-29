@@ -20,9 +20,19 @@ window.onload = function () {
 	tablero.width = colTotal * longAutito;
 	ctx = tablero.getContext("2d");
 
+	pintarBorde();
+
+	pintarTablero();
+
+	pintarAutito();
+
+	pintarMeta();	
+		
+	pintarNivel1();
+
 	document.addEventListener("keyup", cambiarDireccion); //movimientos
 	// Seteo de la velocidad del autito
-	setInterval(update, 300);
+	setInterval(update, 400);
 }
 
 function update() {
@@ -30,18 +40,11 @@ function update() {
 	if (finDelJuego) {
 		document.getElementById("h1").innerHTML="Fin del juego";
 	} else {
-	
-		pintarBorde();
-
-		pintarTablero();
-
-		pintarMeta();	
-		
-		pintarNivel1();
+		borrarAutito();
 	
 		posicionAutito();
 	
-		chocado();
+		choque();
 
 		pintarAutito();
 	}
@@ -56,7 +59,7 @@ function pintarBorde(){
 
 function pintarTablero(){
     // tablero negro para la pista
-	ctx.fillStyle = "black";
+	ctx.fillStyle = "rgb(0,0,0)";
 	ctx.fillRect(20, 20, tablero.width - 40, tablero.height - 40);
 }
 
@@ -92,11 +95,11 @@ function posicionAutito(){
 }
 
 //Deteccion de colision con los bordes, obstaculos o con la meta
-function chocado() {
+function choque() {
     var autito = ctx.getImageData(autitoX, autitoY, longAutito, longAutito);
 
-    var pixels = 400; //Porque la imagen es de 20x20 pixels
-    var elementos = 400*4; //Porque cada pixel tiene 4 bytes (RGBA)
+    var pixels = longAutito*longAutito; //Porque la imagen es un cuadrado
+    var elementos = pixels*4; //Porque cada pixel tiene 4 byte (RGBA)
 
     //Recorro en busca del verde (borde/obstaculo) o del blanco (meta)
     for (var i = 0; i < elementos; i += 4){
@@ -119,6 +122,15 @@ function chocado() {
 
 }
 
+//borrar el autito antes de moverlo
+// (está idea la saqué de https://www.jairogarciarincon.com/clase/videojuego-sencillo-con-html5)
+// para evitar volver a pintar todo el tablero, pasto, obstaculos y meta
+// (y así poder pintar aleatoriamente los obstaculos que de la otra forma no se podía)
+function borrarAutito(){
+	ctx.fillStyle = "rgb(0,0,0)";
+	ctx.fillRect(autitoX, autitoY, longAutito, longAutito);
+}
+
 //pintar el autito
 function pintarAutito(){
     ctx.fillStyle = "rgb(255,0,0)";
@@ -129,8 +141,10 @@ function pintarAutito(){
 function pintarNivel1(){
 	//pasto
     ctx.fillStyle = "rgb(0,255,0)";
-    ctx.fillRect(120, 120, tablero.width - 220, tablero.height - 220);
+    ctx.fillRect(120, 120, tablero.width - 240, tablero.height - 240);
+	
 	//obstaculos
+	pintarObstaculos(5);
 	
 }
 
@@ -168,4 +182,76 @@ function pintarMeta(){
 //boton de reinicio
 function reiniciar(){
 	location.reload();
+}
+
+//pintar obstaculos aleatoriamente, evitando el autito, la meta y el pasto
+function pintarObstaculos(cant){
+	//obstaculos verticales
+    for (i=0; i<cant; i++){//repite hasta alcanzar la cantidad de ostaculos pedidos
+
+		do{//repite hasta encontrar area no ocupada
+			var x = Math.random() * tablero.width;
+        	var y = Math.random() * tablero.height;
+			var obstaculo = ctx.getImageData(x, y, 60, 60);//crea una imagen de 60x60 pixeles
+			var areaOcupada = false;
+
+			for (var byte = 0; byte < 14400; byte += 4){//14400 es 60x60pixeles x 4byte
+				//verde (0, 255, 0)
+				if (obstaculo.data[byte] == 0 && obstaculo.data[byte+1] == 255 && obstaculo.data[byte+2] == 0){
+					areaOcupada = true;
+					break;
+				}
+				//rojo (255, 0, 0)
+				if (obstaculo.data[byte] == 255 && obstaculo.data[byte+1] == 0 && obstaculo.data[byte+2] == 0){
+					areaOcupada = true;
+					break;
+				}
+				//blanco (255, 255, 255)
+				if (obstaculo.data[byte] == 255 && obstaculo.data[byte+1] == 255 && obstaculo.data[byte+2] == 255){
+					areaOcupada = true;
+					break;
+				}
+			}
+
+		} while (areaOcupada);
+
+        //Pinto el obstaculo, dentro del area de 60x60
+        ctx.fillStyle = "rgb(0,255,0";
+        ctx.fillRect(x+25, y+5, 10, 50);
+
+	}
+//obstaculos horizontales
+	for (i=0; i<cant; i++){//repite hasta alcanzar la cantidad de ostaculos pedidos
+
+		do{//repite hasta encontrar area no ocupada
+			var x = Math.random() * tablero.width;
+        	var y = Math.random() * tablero.height;
+			var obstaculo = ctx.getImageData(x, y, 60, 60);//crea una imagen de 60x60 pixeles
+			var areaOcupada = false;
+
+			for (var byte = 0; byte < 14400; byte += 4){//14400 es 60x60pixeles x 4byte
+				//verde (0, 255, 0)
+				if (obstaculo.data[byte] == 0 && obstaculo.data[byte+1] == 255 && obstaculo.data[byte+2] == 0){
+					areaOcupada = true;
+					break;
+				}
+				//rojo (255, 0, 0)
+				if (obstaculo.data[byte] == 255 && obstaculo.data[byte+1] == 0 && obstaculo.data[byte+2] == 0){
+					areaOcupada = true;
+					break;
+				}
+				//blanco (255, 255, 255)
+				if (obstaculo.data[byte] == 255 && obstaculo.data[byte+1] == 255 && obstaculo.data[byte+2] == 255){
+					areaOcupada = true;
+					break;
+				}
+			}
+
+		} while (areaOcupada);
+
+        //Pinto el obstaculo, dentro del area de 60x60
+        ctx.fillStyle = "rgb(0,255,0";
+        ctx.fillRect(x+5, y+25, 50, 10);
+
+	}
 }
